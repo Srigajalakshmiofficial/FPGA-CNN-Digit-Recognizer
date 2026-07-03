@@ -1,0 +1,1185 @@
+TimeQuest Timing Analyzer report for mnist_top
+Mon May 11 11:38:36 2026
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow Model Fmax Summary
+  6. Slow Model Setup Summary
+  7. Slow Model Hold Summary
+  8. Slow Model Recovery Summary
+  9. Slow Model Removal Summary
+ 10. Slow Model Minimum Pulse Width Summary
+ 11. Slow Model Setup: 'CLOCK_50'
+ 12. Slow Model Hold: 'CLOCK_50'
+ 13. Slow Model Minimum Pulse Width: 'CLOCK_50'
+ 14. Setup Times
+ 15. Hold Times
+ 16. Clock to Output Times
+ 17. Minimum Clock to Output Times
+ 18. Fast Model Setup Summary
+ 19. Fast Model Hold Summary
+ 20. Fast Model Recovery Summary
+ 21. Fast Model Removal Summary
+ 22. Fast Model Minimum Pulse Width Summary
+ 23. Fast Model Setup: 'CLOCK_50'
+ 24. Fast Model Hold: 'CLOCK_50'
+ 25. Fast Model Minimum Pulse Width: 'CLOCK_50'
+ 26. Setup Times
+ 27. Hold Times
+ 28. Clock to Output Times
+ 29. Minimum Clock to Output Times
+ 30. Multicorner Timing Analysis Summary
+ 31. Setup Times
+ 32. Hold Times
+ 33. Clock to Output Times
+ 34. Minimum Clock to Output Times
+ 35. Setup Transfers
+ 36. Hold Transfers
+ 37. Report TCCS
+ 38. Report RSKM
+ 39. Unconstrained Paths
+ 40. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                                      ;
++--------------------+-------------------------------------------------------------------+
+; Quartus II Version ; Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition ;
+; Revision Name      ; mnist_top                                                         ;
+; Device Family      ; Cyclone II                                                        ;
+; Device Name        ; EP2C35F672C6                                                      ;
+; Timing Models      ; Final                                                             ;
+; Delay Model        ; Combined                                                          ;
+; Rise/Fall Delays   ; Unavailable                                                       ;
++--------------------+-------------------------------------------------------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 12     ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                               ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets      ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
+; CLOCK_50   ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { CLOCK_50 } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
+
+
++-------------------------------------------------+
+; Slow Model Fmax Summary                         ;
++-----------+-----------------+------------+------+
+; Fmax      ; Restricted Fmax ; Clock Name ; Note ;
++-----------+-----------------+------------+------+
+; 44.65 MHz ; 44.65 MHz       ; CLOCK_50   ;      ;
++-----------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++------------------------------------+
+; Slow Model Setup Summary           ;
++----------+---------+---------------+
+; Clock    ; Slack   ; End Point TNS ;
++----------+---------+---------------+
+; CLOCK_50 ; -21.394 ; -53270.978    ;
++----------+---------+---------------+
+
+
++----------------------------------+
+; Slow Model Hold Summary          ;
++----------+-------+---------------+
+; Clock    ; Slack ; End Point TNS ;
++----------+-------+---------------+
+; CLOCK_50 ; 0.391 ; 0.000         ;
++----------+-------+---------------+
+
+
+-------------------------------
+; Slow Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Slow Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++----------------------------------------+
+; Slow Model Minimum Pulse Width Summary ;
++----------+--------+--------------------+
+; Clock    ; Slack  ; End Point TNS      ;
++----------+--------+--------------------+
+; CLOCK_50 ; -1.423 ; -8219.762          ;
++----------+--------+--------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Setup: 'CLOCK_50'                                                                                                                         ;
++---------+--------------------------------------------+-------------------------+--------------+-------------+--------------+------------+------------+
+; Slack   ; From Node                                  ; To Node                 ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++---------+--------------------------------------------+-------------------------+--------------+-------------+--------------+------------+------------+
+; -21.394 ; mlp_infer:u_mlp|neuron_idx[0]              ; mlp_infer:u_mlp|acc[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 22.395     ;
+; -21.394 ; mlp_infer:u_mlp|neuron_idx[1]              ; mlp_infer:u_mlp|acc[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 22.395     ;
+; -21.394 ; mlp_infer:u_mlp|neuron_idx[2]              ; mlp_infer:u_mlp|acc[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 22.395     ;
+; -21.394 ; mlp_infer:u_mlp|neuron_idx[3]              ; mlp_infer:u_mlp|acc[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 22.395     ;
+; -21.394 ; mlp_infer:u_mlp|neuron_idx[4]              ; mlp_infer:u_mlp|acc[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 22.395     ;
+; -21.248 ; mlp_infer:u_mlp|neuron_idx[5]              ; mlp_infer:u_mlp|acc[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 22.249     ;
+; -21.221 ; mlp_infer:u_mlp|neuron_idx[6]              ; mlp_infer:u_mlp|acc[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 22.222     ;
+; -21.221 ; mlp_infer:u_mlp|neuron_idx[7]              ; mlp_infer:u_mlp|acc[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 22.222     ;
+; -21.221 ; mlp_infer:u_mlp|neuron_idx[8]              ; mlp_infer:u_mlp|acc[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 22.222     ;
+; -21.221 ; mlp_infer:u_mlp|neuron_idx[9]              ; mlp_infer:u_mlp|acc[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 22.222     ;
+; -21.123 ; mlp_infer:u_mlp|neuron_idx[0]              ; mlp_infer:u_mlp|acc[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.038     ; 22.121     ;
+; -21.123 ; mlp_infer:u_mlp|neuron_idx[1]              ; mlp_infer:u_mlp|acc[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.038     ; 22.121     ;
+; -21.123 ; mlp_infer:u_mlp|neuron_idx[2]              ; mlp_infer:u_mlp|acc[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.038     ; 22.121     ;
+; -21.123 ; mlp_infer:u_mlp|neuron_idx[3]              ; mlp_infer:u_mlp|acc[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.038     ; 22.121     ;
+; -21.123 ; mlp_infer:u_mlp|neuron_idx[4]              ; mlp_infer:u_mlp|acc[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.038     ; 22.121     ;
+; -21.031 ; mlp_infer:u_mlp|neuron_idx[0]              ; mlp_infer:u_mlp|acc[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.040     ; 22.027     ;
+; -21.031 ; mlp_infer:u_mlp|neuron_idx[1]              ; mlp_infer:u_mlp|acc[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.040     ; 22.027     ;
+; -21.031 ; mlp_infer:u_mlp|neuron_idx[2]              ; mlp_infer:u_mlp|acc[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.040     ; 22.027     ;
+; -21.031 ; mlp_infer:u_mlp|neuron_idx[3]              ; mlp_infer:u_mlp|acc[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.040     ; 22.027     ;
+; -21.031 ; mlp_infer:u_mlp|neuron_idx[4]              ; mlp_infer:u_mlp|acc[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.040     ; 22.027     ;
+; -20.977 ; mlp_infer:u_mlp|neuron_idx[5]              ; mlp_infer:u_mlp|acc[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.038     ; 21.975     ;
+; -20.950 ; mlp_infer:u_mlp|neuron_idx[6]              ; mlp_infer:u_mlp|acc[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.038     ; 21.948     ;
+; -20.950 ; mlp_infer:u_mlp|neuron_idx[7]              ; mlp_infer:u_mlp|acc[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.038     ; 21.948     ;
+; -20.950 ; mlp_infer:u_mlp|neuron_idx[8]              ; mlp_infer:u_mlp|acc[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.038     ; 21.948     ;
+; -20.950 ; mlp_infer:u_mlp|neuron_idx[9]              ; mlp_infer:u_mlp|acc[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.038     ; 21.948     ;
+; -20.888 ; mlp_infer:u_mlp|neuron_idx[10]             ; mlp_infer:u_mlp|acc[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 21.889     ;
+; -20.885 ; mlp_infer:u_mlp|neuron_idx[5]              ; mlp_infer:u_mlp|acc[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.040     ; 21.881     ;
+; -20.858 ; mlp_infer:u_mlp|neuron_idx[6]              ; mlp_infer:u_mlp|acc[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.040     ; 21.854     ;
+; -20.858 ; mlp_infer:u_mlp|neuron_idx[7]              ; mlp_infer:u_mlp|acc[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.040     ; 21.854     ;
+; -20.858 ; mlp_infer:u_mlp|neuron_idx[8]              ; mlp_infer:u_mlp|acc[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.040     ; 21.854     ;
+; -20.858 ; mlp_infer:u_mlp|neuron_idx[9]              ; mlp_infer:u_mlp|acc[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.040     ; 21.854     ;
+; -20.715 ; mlp_infer:u_mlp|input_idx[4]               ; mlp_infer:u_mlp|acc[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.014      ; 21.765     ;
+; -20.704 ; mlp_infer:u_mlp|neuron_idx[0]              ; mlp_infer:u_mlp|acc[21] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 21.705     ;
+; -20.704 ; mlp_infer:u_mlp|neuron_idx[1]              ; mlp_infer:u_mlp|acc[21] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 21.705     ;
+; -20.704 ; mlp_infer:u_mlp|neuron_idx[2]              ; mlp_infer:u_mlp|acc[21] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 21.705     ;
+; -20.704 ; mlp_infer:u_mlp|neuron_idx[3]              ; mlp_infer:u_mlp|acc[21] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 21.705     ;
+; -20.704 ; mlp_infer:u_mlp|neuron_idx[4]              ; mlp_infer:u_mlp|acc[21] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 21.705     ;
+; -20.625 ; mlp_infer:u_mlp|input_idx[5]               ; mlp_infer:u_mlp|acc[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.014      ; 21.675     ;
+; -20.617 ; mlp_infer:u_mlp|neuron_idx[10]             ; mlp_infer:u_mlp|acc[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.038     ; 21.615     ;
+; -20.558 ; mlp_infer:u_mlp|neuron_idx[5]              ; mlp_infer:u_mlp|acc[21] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 21.559     ;
+; -20.531 ; mlp_infer:u_mlp|neuron_idx[6]              ; mlp_infer:u_mlp|acc[21] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 21.532     ;
+; -20.531 ; mlp_infer:u_mlp|neuron_idx[7]              ; mlp_infer:u_mlp|acc[21] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 21.532     ;
+; -20.531 ; mlp_infer:u_mlp|neuron_idx[8]              ; mlp_infer:u_mlp|acc[21] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 21.532     ;
+; -20.531 ; mlp_infer:u_mlp|neuron_idx[9]              ; mlp_infer:u_mlp|acc[21] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 21.532     ;
+; -20.525 ; mlp_infer:u_mlp|neuron_idx[10]             ; mlp_infer:u_mlp|acc[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.040     ; 21.521     ;
+; -20.506 ; mlp_infer:u_mlp|neuron_idx[11]             ; mlp_infer:u_mlp|acc[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 21.507     ;
+; -20.471 ; mlp_infer:u_mlp|neuron_idx[0]~_Duplicate_1 ; mlp_infer:u_mlp|acc[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.013      ; 21.520     ;
+; -20.470 ; mlp_infer:u_mlp|neuron_idx[0]              ; mlp_infer:u_mlp|acc[18] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 21.471     ;
+; -20.470 ; mlp_infer:u_mlp|neuron_idx[1]              ; mlp_infer:u_mlp|acc[18] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 21.471     ;
+; -20.470 ; mlp_infer:u_mlp|neuron_idx[2]              ; mlp_infer:u_mlp|acc[18] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 21.471     ;
+; -20.470 ; mlp_infer:u_mlp|neuron_idx[3]              ; mlp_infer:u_mlp|acc[18] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 21.471     ;
+; -20.470 ; mlp_infer:u_mlp|neuron_idx[4]              ; mlp_infer:u_mlp|acc[18] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 21.471     ;
+; -20.469 ; mlp_infer:u_mlp|neuron_idx[0]              ; mlp_infer:u_mlp|acc[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.040     ; 21.465     ;
+; -20.469 ; mlp_infer:u_mlp|neuron_idx[1]              ; mlp_infer:u_mlp|acc[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.040     ; 21.465     ;
+; -20.469 ; mlp_infer:u_mlp|neuron_idx[2]              ; mlp_infer:u_mlp|acc[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.040     ; 21.465     ;
+; -20.469 ; mlp_infer:u_mlp|neuron_idx[3]              ; mlp_infer:u_mlp|acc[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.040     ; 21.465     ;
+; -20.469 ; mlp_infer:u_mlp|neuron_idx[4]              ; mlp_infer:u_mlp|acc[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.040     ; 21.465     ;
+; -20.444 ; mlp_infer:u_mlp|input_idx[4]               ; mlp_infer:u_mlp|acc[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.011      ; 21.491     ;
+; -20.440 ; mlp_infer:u_mlp|neuron_idx[0]              ; mlp_infer:u_mlp|acc[17] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 21.441     ;
+; -20.440 ; mlp_infer:u_mlp|neuron_idx[1]              ; mlp_infer:u_mlp|acc[17] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 21.441     ;
+; -20.440 ; mlp_infer:u_mlp|neuron_idx[2]              ; mlp_infer:u_mlp|acc[17] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 21.441     ;
+; -20.440 ; mlp_infer:u_mlp|neuron_idx[3]              ; mlp_infer:u_mlp|acc[17] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 21.441     ;
+; -20.440 ; mlp_infer:u_mlp|neuron_idx[4]              ; mlp_infer:u_mlp|acc[17] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 21.441     ;
+; -20.423 ; mlp_infer:u_mlp|neuron_idx[0]              ; mlp_infer:u_mlp|acc[13] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.040     ; 21.419     ;
+; -20.423 ; mlp_infer:u_mlp|neuron_idx[1]              ; mlp_infer:u_mlp|acc[13] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.040     ; 21.419     ;
+; -20.423 ; mlp_infer:u_mlp|neuron_idx[2]              ; mlp_infer:u_mlp|acc[13] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.040     ; 21.419     ;
+; -20.423 ; mlp_infer:u_mlp|neuron_idx[3]              ; mlp_infer:u_mlp|acc[13] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.040     ; 21.419     ;
+; -20.423 ; mlp_infer:u_mlp|neuron_idx[4]              ; mlp_infer:u_mlp|acc[13] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.040     ; 21.419     ;
+; -20.354 ; mlp_infer:u_mlp|input_idx[5]               ; mlp_infer:u_mlp|acc[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.011      ; 21.401     ;
+; -20.352 ; mlp_infer:u_mlp|input_idx[4]               ; mlp_infer:u_mlp|acc[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.009      ; 21.397     ;
+; -20.324 ; mlp_infer:u_mlp|neuron_idx[0]              ; mlp_infer:u_mlp|acc[9]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.039     ; 21.321     ;
+; -20.324 ; mlp_infer:u_mlp|neuron_idx[1]              ; mlp_infer:u_mlp|acc[9]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.039     ; 21.321     ;
+; -20.324 ; mlp_infer:u_mlp|neuron_idx[2]              ; mlp_infer:u_mlp|acc[9]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.039     ; 21.321     ;
+; -20.324 ; mlp_infer:u_mlp|neuron_idx[3]              ; mlp_infer:u_mlp|acc[9]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.039     ; 21.321     ;
+; -20.324 ; mlp_infer:u_mlp|neuron_idx[4]              ; mlp_infer:u_mlp|acc[9]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.039     ; 21.321     ;
+; -20.324 ; mlp_infer:u_mlp|neuron_idx[5]              ; mlp_infer:u_mlp|acc[18] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 21.325     ;
+; -20.323 ; mlp_infer:u_mlp|neuron_idx[5]              ; mlp_infer:u_mlp|acc[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.040     ; 21.319     ;
+; -20.297 ; mlp_infer:u_mlp|neuron_idx[6]              ; mlp_infer:u_mlp|acc[18] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 21.298     ;
+; -20.297 ; mlp_infer:u_mlp|neuron_idx[7]              ; mlp_infer:u_mlp|acc[18] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 21.298     ;
+; -20.297 ; mlp_infer:u_mlp|neuron_idx[8]              ; mlp_infer:u_mlp|acc[18] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 21.298     ;
+; -20.297 ; mlp_infer:u_mlp|neuron_idx[9]              ; mlp_infer:u_mlp|acc[18] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 21.298     ;
+; -20.296 ; mlp_infer:u_mlp|neuron_idx[6]              ; mlp_infer:u_mlp|acc[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.040     ; 21.292     ;
+; -20.296 ; mlp_infer:u_mlp|neuron_idx[7]              ; mlp_infer:u_mlp|acc[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.040     ; 21.292     ;
+; -20.296 ; mlp_infer:u_mlp|neuron_idx[8]              ; mlp_infer:u_mlp|acc[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.040     ; 21.292     ;
+; -20.296 ; mlp_infer:u_mlp|neuron_idx[9]              ; mlp_infer:u_mlp|acc[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.040     ; 21.292     ;
+; -20.294 ; mlp_infer:u_mlp|neuron_idx[5]              ; mlp_infer:u_mlp|acc[17] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 21.295     ;
+; -20.277 ; mlp_infer:u_mlp|neuron_idx[5]              ; mlp_infer:u_mlp|acc[13] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.040     ; 21.273     ;
+; -20.267 ; mlp_infer:u_mlp|neuron_idx[6]              ; mlp_infer:u_mlp|acc[17] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 21.268     ;
+; -20.267 ; mlp_infer:u_mlp|neuron_idx[7]              ; mlp_infer:u_mlp|acc[17] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 21.268     ;
+; -20.267 ; mlp_infer:u_mlp|neuron_idx[8]              ; mlp_infer:u_mlp|acc[17] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 21.268     ;
+; -20.267 ; mlp_infer:u_mlp|neuron_idx[9]              ; mlp_infer:u_mlp|acc[17] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 21.268     ;
+; -20.262 ; mlp_infer:u_mlp|input_idx[5]               ; mlp_infer:u_mlp|acc[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.009      ; 21.307     ;
+; -20.255 ; mlp_infer:u_mlp|input_idx[0]               ; mlp_infer:u_mlp|acc[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.014      ; 21.305     ;
+; -20.250 ; mlp_infer:u_mlp|neuron_idx[6]              ; mlp_infer:u_mlp|acc[13] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.040     ; 21.246     ;
+; -20.250 ; mlp_infer:u_mlp|neuron_idx[7]              ; mlp_infer:u_mlp|acc[13] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.040     ; 21.246     ;
+; -20.250 ; mlp_infer:u_mlp|neuron_idx[8]              ; mlp_infer:u_mlp|acc[13] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.040     ; 21.246     ;
+; -20.250 ; mlp_infer:u_mlp|neuron_idx[9]              ; mlp_infer:u_mlp|acc[13] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.040     ; 21.246     ;
+; -20.241 ; mlp_infer:u_mlp|neuron_idx[0]              ; mlp_infer:u_mlp|acc[16] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 21.242     ;
+; -20.241 ; mlp_infer:u_mlp|neuron_idx[1]              ; mlp_infer:u_mlp|acc[16] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 21.242     ;
+; -20.241 ; mlp_infer:u_mlp|neuron_idx[2]              ; mlp_infer:u_mlp|acc[16] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.035     ; 21.242     ;
++---------+--------------------------------------------+-------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Hold: 'CLOCK_50'                                                                                                                     ;
++-------+---------------------------------+---------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                       ; To Node                         ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+---------------------------------+---------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.391 ; uart_rx:u_rx|cnt[0]             ; uart_rx:u_rx|cnt[0]             ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; uart_rx:u_rx|cnt[1]             ; uart_rx:u_rx|cnt[1]             ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; uart_rx:u_rx|cnt[2]             ; uart_rx:u_rx|cnt[2]             ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; uart_rx:u_rx|cnt[3]             ; uart_rx:u_rx|cnt[3]             ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; uart_rx:u_rx|cnt[4]             ; uart_rx:u_rx|cnt[4]             ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; uart_rx:u_rx|cnt[5]             ; uart_rx:u_rx|cnt[5]             ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; uart_rx:u_rx|cnt[6]             ; uart_rx:u_rx|cnt[6]             ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; uart_rx:u_rx|cnt[7]             ; uart_rx:u_rx|cnt[7]             ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; uart_rx:u_rx|cnt[8]             ; uart_rx:u_rx|cnt[8]             ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; uart_rx:u_rx|cnt[9]             ; uart_rx:u_rx|cnt[9]             ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; uart_rx:u_rx|bit_idx[0]         ; uart_rx:u_rx|bit_idx[0]         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; uart_rx:u_rx|bit_idx[2]         ; uart_rx:u_rx|bit_idx[2]         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; uart_rx:u_rx|bit_idx[1]         ; uart_rx:u_rx|bit_idx[1]         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; uart_rx:u_rx|state.DATA         ; uart_rx:u_rx|state.DATA         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; uart_rx:u_rx|state.STOP         ; uart_rx:u_rx|state.STOP         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|state.WAIT   ; pixel_buffer:u_buf|state.WAIT   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|state.RECV   ; pixel_buffer:u_buf|state.RECV   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; mlp_infer:u_mlp|state.S_L1      ; mlp_infer:u_mlp|state.S_L1      ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; mlp_infer:u_mlp|state.S_L2      ; mlp_infer:u_mlp|state.S_L2      ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; mlp_infer:u_mlp|state.S_L3      ; mlp_infer:u_mlp|state.S_L3      ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; mlp_infer:u_mlp|state.S_L4      ; mlp_infer:u_mlp|state.S_L4      ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; mlp_infer:u_mlp|store_neuron    ; mlp_infer:u_mlp|store_neuron    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; mlp_infer:u_mlp|am_cnt[2]       ; mlp_infer:u_mlp|am_cnt[2]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; mlp_infer:u_mlp|am_cnt[3]       ; mlp_infer:u_mlp|am_cnt[3]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; mlp_infer:u_mlp|am_cnt[1]       ; mlp_infer:u_mlp|am_cnt[1]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; mlp_infer:u_mlp|am_cnt[0]       ; mlp_infer:u_mlp|am_cnt[0]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[2144] ; pixel_buffer:u_buf|pixels[2144] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[1120] ; pixel_buffer:u_buf|pixels[1120] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[2016] ; pixel_buffer:u_buf|pixels[2016] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[992]  ; pixel_buffer:u_buf|pixels[992]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[1504] ; pixel_buffer:u_buf|pixels[1504] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[1632] ; pixel_buffer:u_buf|pixels[1632] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[608]  ; pixel_buffer:u_buf|pixels[608]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[480]  ; pixel_buffer:u_buf|pixels[480]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[1760] ; pixel_buffer:u_buf|pixels[1760] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[736]  ; pixel_buffer:u_buf|pixels[736]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[864]  ; pixel_buffer:u_buf|pixels[864]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[1888] ; pixel_buffer:u_buf|pixels[1888] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[1376] ; pixel_buffer:u_buf|pixels[1376] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[352]  ; pixel_buffer:u_buf|pixels[352]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[1248] ; pixel_buffer:u_buf|pixels[1248] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[224]  ; pixel_buffer:u_buf|pixels[224]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[1000] ; pixel_buffer:u_buf|pixels[1000] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[2024] ; pixel_buffer:u_buf|pixels[2024] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[488]  ; pixel_buffer:u_buf|pixels[488]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[1512] ; pixel_buffer:u_buf|pixels[1512] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[1128] ; pixel_buffer:u_buf|pixels[1128] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[2152] ; pixel_buffer:u_buf|pixels[2152] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[616]  ; pixel_buffer:u_buf|pixels[616]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[1640] ; pixel_buffer:u_buf|pixels[1640] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[872]  ; pixel_buffer:u_buf|pixels[872]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[1896] ; pixel_buffer:u_buf|pixels[1896] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[1384] ; pixel_buffer:u_buf|pixels[1384] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[360]  ; pixel_buffer:u_buf|pixels[360]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[1768] ; pixel_buffer:u_buf|pixels[1768] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[744]  ; pixel_buffer:u_buf|pixels[744]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[232]  ; pixel_buffer:u_buf|pixels[232]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[1256] ; pixel_buffer:u_buf|pixels[1256] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[1824] ; pixel_buffer:u_buf|pixels[1824] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[800]  ; pixel_buffer:u_buf|pixels[800]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[1312] ; pixel_buffer:u_buf|pixels[1312] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[288]  ; pixel_buffer:u_buf|pixels[288]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[1696] ; pixel_buffer:u_buf|pixels[1696] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[672]  ; pixel_buffer:u_buf|pixels[672]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[1184] ; pixel_buffer:u_buf|pixels[1184] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[160]  ; pixel_buffer:u_buf|pixels[160]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[1952] ; pixel_buffer:u_buf|pixels[1952] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[928]  ; pixel_buffer:u_buf|pixels[928]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[416]  ; pixel_buffer:u_buf|pixels[416]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[1440] ; pixel_buffer:u_buf|pixels[1440] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[1056] ; pixel_buffer:u_buf|pixels[1056] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[2080] ; pixel_buffer:u_buf|pixels[2080] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[544]  ; pixel_buffer:u_buf|pixels[544]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[1568] ; pixel_buffer:u_buf|pixels[1568] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[1064] ; pixel_buffer:u_buf|pixels[1064] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[2088] ; pixel_buffer:u_buf|pixels[2088] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[1832] ; pixel_buffer:u_buf|pixels[1832] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[808]  ; pixel_buffer:u_buf|pixels[808]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[552]  ; pixel_buffer:u_buf|pixels[552]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[1576] ; pixel_buffer:u_buf|pixels[1576] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[1320] ; pixel_buffer:u_buf|pixels[1320] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[296]  ; pixel_buffer:u_buf|pixels[296]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[424]  ; pixel_buffer:u_buf|pixels[424]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[1448] ; pixel_buffer:u_buf|pixels[1448] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[1192] ; pixel_buffer:u_buf|pixels[1192] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[168]  ; pixel_buffer:u_buf|pixels[168]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[936]  ; pixel_buffer:u_buf|pixels[936]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[1960] ; pixel_buffer:u_buf|pixels[1960] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[680]  ; pixel_buffer:u_buf|pixels[680]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[1704] ; pixel_buffer:u_buf|pixels[1704] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[1280] ; pixel_buffer:u_buf|pixels[1280] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[256]  ; pixel_buffer:u_buf|pixels[256]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[128]  ; pixel_buffer:u_buf|pixels[128]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[1152] ; pixel_buffer:u_buf|pixels[1152] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[640]  ; pixel_buffer:u_buf|pixels[640]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[768]  ; pixel_buffer:u_buf|pixels[768]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[1792] ; pixel_buffer:u_buf|pixels[1792] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[1664] ; pixel_buffer:u_buf|pixels[1664] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[2048] ; pixel_buffer:u_buf|pixels[2048] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; pixel_buffer:u_buf|pixels[1024] ; pixel_buffer:u_buf|pixels[1024] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
++-------+---------------------------------+---------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Slow Model Minimum Pulse Width: 'CLOCK_50'                                                                         ;
++--------+--------------+----------------+------------------+----------+------------+--------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock    ; Clock Edge ; Target                         ;
++--------+--------------+----------------+------------------+----------+------------+--------------------------------+
+; -1.423 ; 0.500        ; 1.923          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[0]  ;
+; -1.423 ; 0.500        ; 1.923          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[0]  ;
+; -1.423 ; 0.500        ; 1.923          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[10] ;
+; -1.423 ; 0.500        ; 1.923          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[10] ;
+; -1.423 ; 0.500        ; 1.923          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[11] ;
+; -1.423 ; 0.500        ; 1.923          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[11] ;
+; -1.423 ; 0.500        ; 1.923          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[12] ;
+; -1.423 ; 0.500        ; 1.923          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[12] ;
+; -1.423 ; 0.500        ; 1.923          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[13] ;
+; -1.423 ; 0.500        ; 1.923          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[13] ;
+; -1.423 ; 0.500        ; 1.923          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[14] ;
+; -1.423 ; 0.500        ; 1.923          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[14] ;
+; -1.423 ; 0.500        ; 1.923          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[15] ;
+; -1.423 ; 0.500        ; 1.923          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[15] ;
+; -1.423 ; 0.500        ; 1.923          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[16] ;
+; -1.423 ; 0.500        ; 1.923          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[16] ;
+; -1.423 ; 0.500        ; 1.923          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[1]  ;
+; -1.423 ; 0.500        ; 1.923          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[1]  ;
+; -1.423 ; 0.500        ; 1.923          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[2]  ;
+; -1.423 ; 0.500        ; 1.923          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[2]  ;
+; -1.423 ; 0.500        ; 1.923          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[3]  ;
+; -1.423 ; 0.500        ; 1.923          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[3]  ;
+; -1.423 ; 0.500        ; 1.923          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[4]  ;
+; -1.423 ; 0.500        ; 1.923          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[4]  ;
+; -1.423 ; 0.500        ; 1.923          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[5]  ;
+; -1.423 ; 0.500        ; 1.923          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[5]  ;
+; -1.423 ; 0.500        ; 1.923          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[6]  ;
+; -1.423 ; 0.500        ; 1.923          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[6]  ;
+; -1.423 ; 0.500        ; 1.923          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[7]  ;
+; -1.423 ; 0.500        ; 1.923          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[7]  ;
+; -1.423 ; 0.500        ; 1.923          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[8]  ;
+; -1.423 ; 0.500        ; 1.923          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[8]  ;
+; -1.423 ; 0.500        ; 1.923          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[9]  ;
+; -1.423 ; 0.500        ; 1.923          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[9]  ;
+; -1.380 ; 1.000        ; 2.380          ; Port Rate        ; CLOCK_50 ; Rise       ; CLOCK_50                       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; last_result[0]                 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; last_result[0]                 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; last_result[1]                 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; last_result[1]                 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; last_result[2]                 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; last_result[2]                 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; last_result[3]                 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; last_result[3]                 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[0][0]       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[0][0]       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[0][1]       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[0][1]       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[0][2]       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[0][2]       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[0][3]       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[0][3]       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[0][4]       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[0][4]       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[0][5]       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[0][5]       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[0][6]       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[0][6]       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[100][0]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[100][0]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[100][1]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[100][1]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[100][2]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[100][2]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[100][3]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[100][3]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[100][4]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[100][4]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[100][5]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[100][5]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[100][6]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[100][6]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[101][0]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[101][0]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[101][1]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[101][1]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[101][2]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[101][2]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[101][3]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[101][3]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[101][4]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[101][4]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[101][5]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[101][5]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[101][6]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[101][6]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[102][0]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[102][0]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[102][1]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[102][1]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[102][2]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[102][2]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[102][3]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[102][3]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[102][4]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[102][4]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[102][5]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[102][5]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[102][6]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[102][6]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[103][0]     ;
++--------+--------------+----------------+------------------+----------+------------+--------------------------------+
+
+
++--------------------------------------------------------------------------+
+; Setup Times                                                              ;
++------------+------------+--------+--------+------------+-----------------+
+; Data Port  ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++------------+------------+--------+--------+------------+-----------------+
+; GPIO_1[*]  ; CLOCK_50   ; 4.951  ; 4.951  ; Rise       ; CLOCK_50        ;
+;  GPIO_1[0] ; CLOCK_50   ; 4.951  ; 4.951  ; Rise       ; CLOCK_50        ;
+; KEY0       ; CLOCK_50   ; 17.072 ; 17.072 ; Rise       ; CLOCK_50        ;
++------------+------------+--------+--------+------------+-----------------+
+
+
++----------------------------------------------------------------------------+
+; Hold Times                                                                 ;
++------------+------------+---------+---------+------------+-----------------+
+; Data Port  ; Clock Port ; Rise    ; Fall    ; Clock Edge ; Clock Reference ;
++------------+------------+---------+---------+------------+-----------------+
+; GPIO_1[*]  ; CLOCK_50   ; -4.721  ; -4.721  ; Rise       ; CLOCK_50        ;
+;  GPIO_1[0] ; CLOCK_50   ; -4.721  ; -4.721  ; Rise       ; CLOCK_50        ;
+; KEY0       ; CLOCK_50   ; -10.069 ; -10.069 ; Rise       ; CLOCK_50        ;
++------------+------------+---------+---------+------------+-----------------+
+
+
++--------------------------------------------------------------------------+
+; Clock to Output Times                                                    ;
++------------+------------+--------+--------+------------+-----------------+
+; Data Port  ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++------------+------------+--------+--------+------------+-----------------+
+; GPIO_1[*]  ; CLOCK_50   ; 7.701  ; 7.701  ; Rise       ; CLOCK_50        ;
+;  GPIO_1[1] ; CLOCK_50   ; 7.701  ; 7.701  ; Rise       ; CLOCK_50        ;
+; HEX0[*]    ; CLOCK_50   ; 10.358 ; 10.358 ; Rise       ; CLOCK_50        ;
+;  HEX0[0]   ; CLOCK_50   ; 10.109 ; 10.109 ; Rise       ; CLOCK_50        ;
+;  HEX0[1]   ; CLOCK_50   ; 10.074 ; 10.074 ; Rise       ; CLOCK_50        ;
+;  HEX0[2]   ; CLOCK_50   ; 10.088 ; 10.088 ; Rise       ; CLOCK_50        ;
+;  HEX0[3]   ; CLOCK_50   ; 10.358 ; 10.358 ; Rise       ; CLOCK_50        ;
+;  HEX0[4]   ; CLOCK_50   ; 10.351 ; 10.351 ; Rise       ; CLOCK_50        ;
+;  HEX0[5]   ; CLOCK_50   ; 10.349 ; 10.349 ; Rise       ; CLOCK_50        ;
+;  HEX0[6]   ; CLOCK_50   ; 10.353 ; 10.353 ; Rise       ; CLOCK_50        ;
+; LEDG[*]    ; CLOCK_50   ; 10.224 ; 10.224 ; Rise       ; CLOCK_50        ;
+;  LEDG[0]   ; CLOCK_50   ; 8.585  ; 8.585  ; Rise       ; CLOCK_50        ;
+;  LEDG[1]   ; CLOCK_50   ; 8.815  ; 8.815  ; Rise       ; CLOCK_50        ;
+;  LEDG[2]   ; CLOCK_50   ; 10.224 ; 10.224 ; Rise       ; CLOCK_50        ;
+; LEDR[*]    ; CLOCK_50   ; 9.526  ; 9.526  ; Rise       ; CLOCK_50        ;
+;  LEDR[14]  ; CLOCK_50   ; 7.092  ; 7.092  ; Rise       ; CLOCK_50        ;
+;  LEDR[15]  ; CLOCK_50   ; 6.866  ; 6.866  ; Rise       ; CLOCK_50        ;
+;  LEDR[16]  ; CLOCK_50   ; 9.526  ; 9.526  ; Rise       ; CLOCK_50        ;
+;  LEDR[17]  ; CLOCK_50   ; 6.854  ; 6.854  ; Rise       ; CLOCK_50        ;
++------------+------------+--------+--------+------------+-----------------+
+
+
++--------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                            ;
++------------+------------+--------+--------+------------+-----------------+
+; Data Port  ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++------------+------------+--------+--------+------------+-----------------+
+; GPIO_1[*]  ; CLOCK_50   ; 7.701  ; 7.701  ; Rise       ; CLOCK_50        ;
+;  GPIO_1[1] ; CLOCK_50   ; 7.701  ; 7.701  ; Rise       ; CLOCK_50        ;
+; HEX0[*]    ; CLOCK_50   ; 6.927  ; 6.927  ; Rise       ; CLOCK_50        ;
+;  HEX0[0]   ; CLOCK_50   ; 6.963  ; 6.963  ; Rise       ; CLOCK_50        ;
+;  HEX0[1]   ; CLOCK_50   ; 6.927  ; 6.927  ; Rise       ; CLOCK_50        ;
+;  HEX0[2]   ; CLOCK_50   ; 6.932  ; 6.932  ; Rise       ; CLOCK_50        ;
+;  HEX0[3]   ; CLOCK_50   ; 7.203  ; 7.203  ; Rise       ; CLOCK_50        ;
+;  HEX0[4]   ; CLOCK_50   ; 7.207  ; 7.207  ; Rise       ; CLOCK_50        ;
+;  HEX0[5]   ; CLOCK_50   ; 7.194  ; 7.194  ; Rise       ; CLOCK_50        ;
+;  HEX0[6]   ; CLOCK_50   ; 7.196  ; 7.196  ; Rise       ; CLOCK_50        ;
+; LEDG[*]    ; CLOCK_50   ; 8.585  ; 8.585  ; Rise       ; CLOCK_50        ;
+;  LEDG[0]   ; CLOCK_50   ; 8.585  ; 8.585  ; Rise       ; CLOCK_50        ;
+;  LEDG[1]   ; CLOCK_50   ; 8.815  ; 8.815  ; Rise       ; CLOCK_50        ;
+;  LEDG[2]   ; CLOCK_50   ; 10.224 ; 10.224 ; Rise       ; CLOCK_50        ;
+; LEDR[*]    ; CLOCK_50   ; 6.854  ; 6.854  ; Rise       ; CLOCK_50        ;
+;  LEDR[14]  ; CLOCK_50   ; 7.092  ; 7.092  ; Rise       ; CLOCK_50        ;
+;  LEDR[15]  ; CLOCK_50   ; 6.866  ; 6.866  ; Rise       ; CLOCK_50        ;
+;  LEDR[16]  ; CLOCK_50   ; 9.526  ; 9.526  ; Rise       ; CLOCK_50        ;
+;  LEDR[17]  ; CLOCK_50   ; 6.854  ; 6.854  ; Rise       ; CLOCK_50        ;
++------------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------+
+; Fast Model Setup Summary          ;
++----------+--------+---------------+
+; Clock    ; Slack  ; End Point TNS ;
++----------+--------+---------------+
+; CLOCK_50 ; -8.681 ; -20772.557    ;
++----------+--------+---------------+
+
+
++----------------------------------+
+; Fast Model Hold Summary          ;
++----------+-------+---------------+
+; Clock    ; Slack ; End Point TNS ;
++----------+-------+---------------+
+; CLOCK_50 ; 0.215 ; 0.000         ;
++----------+-------+---------------+
+
+
+-------------------------------
+; Fast Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Fast Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++----------------------------------------+
+; Fast Model Minimum Pulse Width Summary ;
++----------+--------+--------------------+
+; Clock    ; Slack  ; End Point TNS      ;
++----------+--------+--------------------+
+; CLOCK_50 ; -1.519 ; -8223.026          ;
++----------+--------+--------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Setup: 'CLOCK_50'                                                                                                                        ;
++--------+--------------------------------------------+-------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                  ; To Node                 ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+--------------------------------------------+-------------------------+--------------+-------------+--------------+------------+------------+
+; -8.681 ; mlp_infer:u_mlp|input_idx[4]               ; mlp_infer:u_mlp|acc[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.012      ; 9.725      ;
+; -8.641 ; mlp_infer:u_mlp|input_idx[5]               ; mlp_infer:u_mlp|acc[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.012      ; 9.685      ;
+; -8.572 ; mlp_infer:u_mlp|input_idx[4]               ; mlp_infer:u_mlp|acc[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.009      ; 9.613      ;
+; -8.572 ; mlp_infer:u_mlp|neuron_idx[0]~_Duplicate_1 ; mlp_infer:u_mlp|acc[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.011      ; 9.615      ;
+; -8.543 ; mlp_infer:u_mlp|input_idx[4]               ; mlp_infer:u_mlp|acc[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.007      ; 9.582      ;
+; -8.532 ; mlp_infer:u_mlp|input_idx[5]               ; mlp_infer:u_mlp|acc[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.009      ; 9.573      ;
+; -8.520 ; mlp_infer:u_mlp|input_idx[2]               ; mlp_infer:u_mlp|acc[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.012      ; 9.564      ;
+; -8.510 ; mlp_infer:u_mlp|input_idx[0]               ; mlp_infer:u_mlp|acc[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.012      ; 9.554      ;
+; -8.508 ; mlp_infer:u_mlp|input_idx[1]               ; mlp_infer:u_mlp|acc[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.012      ; 9.552      ;
+; -8.503 ; mlp_infer:u_mlp|input_idx[5]               ; mlp_infer:u_mlp|acc[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.007      ; 9.542      ;
+; -8.493 ; mlp_infer:u_mlp|input_idx[3]               ; mlp_infer:u_mlp|acc[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.012      ; 9.537      ;
+; -8.463 ; mlp_infer:u_mlp|neuron_idx[0]~_Duplicate_1 ; mlp_infer:u_mlp|acc[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.008      ; 9.503      ;
+; -8.434 ; mlp_infer:u_mlp|neuron_idx[0]~_Duplicate_1 ; mlp_infer:u_mlp|acc[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.006      ; 9.472      ;
+; -8.433 ; mlp_infer:u_mlp|neuron_idx[1]~_Duplicate_1 ; mlp_infer:u_mlp|acc[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.011      ; 9.476      ;
+; -8.411 ; mlp_infer:u_mlp|input_idx[2]               ; mlp_infer:u_mlp|acc[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.009      ; 9.452      ;
+; -8.401 ; mlp_infer:u_mlp|input_idx[0]               ; mlp_infer:u_mlp|acc[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.009      ; 9.442      ;
+; -8.399 ; mlp_infer:u_mlp|input_idx[1]               ; mlp_infer:u_mlp|acc[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.009      ; 9.440      ;
+; -8.387 ; mlp_infer:u_mlp|input_idx[4]               ; mlp_infer:u_mlp|acc[21] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.012      ; 9.431      ;
+; -8.384 ; mlp_infer:u_mlp|input_idx[3]               ; mlp_infer:u_mlp|acc[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.009      ; 9.425      ;
+; -8.382 ; mlp_infer:u_mlp|input_idx[2]               ; mlp_infer:u_mlp|acc[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.007      ; 9.421      ;
+; -8.372 ; mlp_infer:u_mlp|input_idx[0]               ; mlp_infer:u_mlp|acc[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.007      ; 9.411      ;
+; -8.370 ; mlp_infer:u_mlp|input_idx[1]               ; mlp_infer:u_mlp|acc[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.007      ; 9.409      ;
+; -8.355 ; mlp_infer:u_mlp|input_idx[3]               ; mlp_infer:u_mlp|acc[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.007      ; 9.394      ;
+; -8.347 ; mlp_infer:u_mlp|input_idx[5]               ; mlp_infer:u_mlp|acc[21] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.012      ; 9.391      ;
+; -8.326 ; mlp_infer:u_mlp|input_idx[6]               ; mlp_infer:u_mlp|acc[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.012      ; 9.370      ;
+; -8.324 ; mlp_infer:u_mlp|neuron_idx[1]~_Duplicate_1 ; mlp_infer:u_mlp|acc[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.008      ; 9.364      ;
+; -8.295 ; mlp_infer:u_mlp|neuron_idx[1]~_Duplicate_1 ; mlp_infer:u_mlp|acc[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.006      ; 9.333      ;
+; -8.288 ; mlp_infer:u_mlp|neuron_idx[0]              ; mlp_infer:u_mlp|acc[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.039     ; 9.281      ;
+; -8.288 ; mlp_infer:u_mlp|neuron_idx[1]              ; mlp_infer:u_mlp|acc[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.039     ; 9.281      ;
+; -8.288 ; mlp_infer:u_mlp|neuron_idx[2]              ; mlp_infer:u_mlp|acc[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.039     ; 9.281      ;
+; -8.288 ; mlp_infer:u_mlp|neuron_idx[3]              ; mlp_infer:u_mlp|acc[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.039     ; 9.281      ;
+; -8.288 ; mlp_infer:u_mlp|neuron_idx[4]              ; mlp_infer:u_mlp|acc[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.039     ; 9.281      ;
+; -8.278 ; mlp_infer:u_mlp|neuron_idx[0]~_Duplicate_1 ; mlp_infer:u_mlp|acc[21] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.011      ; 9.321      ;
+; -8.258 ; mlp_infer:u_mlp|input_idx[4]               ; mlp_infer:u_mlp|acc[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.007      ; 9.297      ;
+; -8.250 ; mlp_infer:u_mlp|input_idx[4]               ; mlp_infer:u_mlp|acc[18] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.012      ; 9.294      ;
+; -8.241 ; mlp_infer:u_mlp|neuron_idx[2]~_Duplicate_1 ; mlp_infer:u_mlp|acc[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.011      ; 9.284      ;
+; -8.226 ; mlp_infer:u_mlp|input_idx[2]               ; mlp_infer:u_mlp|acc[21] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.012      ; 9.270      ;
+; -8.222 ; mlp_infer:u_mlp|input_idx[4]               ; mlp_infer:u_mlp|acc[17] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.012      ; 9.266      ;
+; -8.218 ; mlp_infer:u_mlp|input_idx[5]               ; mlp_infer:u_mlp|acc[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.007      ; 9.257      ;
+; -8.217 ; mlp_infer:u_mlp|input_idx[6]               ; mlp_infer:u_mlp|acc[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.009      ; 9.258      ;
+; -8.216 ; mlp_infer:u_mlp|input_idx[0]               ; mlp_infer:u_mlp|acc[21] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.012      ; 9.260      ;
+; -8.214 ; mlp_infer:u_mlp|input_idx[4]               ; mlp_infer:u_mlp|acc[13] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.007      ; 9.253      ;
+; -8.214 ; mlp_infer:u_mlp|input_idx[1]               ; mlp_infer:u_mlp|acc[21] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.012      ; 9.258      ;
+; -8.210 ; mlp_infer:u_mlp|input_idx[5]               ; mlp_infer:u_mlp|acc[18] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.012      ; 9.254      ;
+; -8.209 ; mlp_infer:u_mlp|input_idx[7]               ; mlp_infer:u_mlp|acc[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.012      ; 9.253      ;
+; -8.206 ; mlp_infer:u_mlp|neuron_idx[5]              ; mlp_infer:u_mlp|acc[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.039     ; 9.199      ;
+; -8.199 ; mlp_infer:u_mlp|input_idx[3]               ; mlp_infer:u_mlp|acc[21] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.012      ; 9.243      ;
+; -8.188 ; mlp_infer:u_mlp|input_idx[6]               ; mlp_infer:u_mlp|acc[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.007      ; 9.227      ;
+; -8.184 ; mlp_infer:u_mlp|neuron_idx[6]              ; mlp_infer:u_mlp|acc[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.039     ; 9.177      ;
+; -8.184 ; mlp_infer:u_mlp|neuron_idx[7]              ; mlp_infer:u_mlp|acc[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.039     ; 9.177      ;
+; -8.184 ; mlp_infer:u_mlp|neuron_idx[8]              ; mlp_infer:u_mlp|acc[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.039     ; 9.177      ;
+; -8.184 ; mlp_infer:u_mlp|neuron_idx[9]              ; mlp_infer:u_mlp|acc[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.039     ; 9.177      ;
+; -8.182 ; mlp_infer:u_mlp|input_idx[5]               ; mlp_infer:u_mlp|acc[17] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.012      ; 9.226      ;
+; -8.179 ; mlp_infer:u_mlp|neuron_idx[0]              ; mlp_infer:u_mlp|acc[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.042     ; 9.169      ;
+; -8.179 ; mlp_infer:u_mlp|neuron_idx[1]              ; mlp_infer:u_mlp|acc[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.042     ; 9.169      ;
+; -8.179 ; mlp_infer:u_mlp|neuron_idx[2]              ; mlp_infer:u_mlp|acc[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.042     ; 9.169      ;
+; -8.179 ; mlp_infer:u_mlp|neuron_idx[3]              ; mlp_infer:u_mlp|acc[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.042     ; 9.169      ;
+; -8.179 ; mlp_infer:u_mlp|neuron_idx[4]              ; mlp_infer:u_mlp|acc[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.042     ; 9.169      ;
+; -8.174 ; mlp_infer:u_mlp|input_idx[5]               ; mlp_infer:u_mlp|acc[13] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.007      ; 9.213      ;
+; -8.150 ; mlp_infer:u_mlp|neuron_idx[0]              ; mlp_infer:u_mlp|acc[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.044     ; 9.138      ;
+; -8.150 ; mlp_infer:u_mlp|neuron_idx[1]              ; mlp_infer:u_mlp|acc[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.044     ; 9.138      ;
+; -8.150 ; mlp_infer:u_mlp|neuron_idx[2]              ; mlp_infer:u_mlp|acc[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.044     ; 9.138      ;
+; -8.150 ; mlp_infer:u_mlp|neuron_idx[3]              ; mlp_infer:u_mlp|acc[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.044     ; 9.138      ;
+; -8.150 ; mlp_infer:u_mlp|neuron_idx[4]              ; mlp_infer:u_mlp|acc[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.044     ; 9.138      ;
+; -8.149 ; mlp_infer:u_mlp|neuron_idx[0]~_Duplicate_1 ; mlp_infer:u_mlp|acc[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.006      ; 9.187      ;
+; -8.141 ; mlp_infer:u_mlp|neuron_idx[0]~_Duplicate_1 ; mlp_infer:u_mlp|acc[18] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.011      ; 9.184      ;
+; -8.140 ; mlp_infer:u_mlp|input_idx[4]               ; mlp_infer:u_mlp|acc[16] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.012      ; 9.184      ;
+; -8.139 ; mlp_infer:u_mlp|neuron_idx[1]~_Duplicate_1 ; mlp_infer:u_mlp|acc[21] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.011      ; 9.182      ;
+; -8.132 ; mlp_infer:u_mlp|neuron_idx[2]~_Duplicate_1 ; mlp_infer:u_mlp|acc[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.008      ; 9.172      ;
+; -8.113 ; mlp_infer:u_mlp|neuron_idx[0]~_Duplicate_1 ; mlp_infer:u_mlp|acc[17] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.011      ; 9.156      ;
+; -8.111 ; mlp_infer:u_mlp|input_idx[4]               ; mlp_infer:u_mlp|acc[9]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.008      ; 9.151      ;
+; -8.105 ; mlp_infer:u_mlp|neuron_idx[0]~_Duplicate_1 ; mlp_infer:u_mlp|acc[13] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.006      ; 9.143      ;
+; -8.103 ; mlp_infer:u_mlp|neuron_idx[2]~_Duplicate_1 ; mlp_infer:u_mlp|acc[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.006      ; 9.141      ;
+; -8.100 ; mlp_infer:u_mlp|input_idx[7]               ; mlp_infer:u_mlp|acc[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.009      ; 9.141      ;
+; -8.100 ; mlp_infer:u_mlp|input_idx[5]               ; mlp_infer:u_mlp|acc[16] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.012      ; 9.144      ;
+; -8.097 ; mlp_infer:u_mlp|input_idx[2]               ; mlp_infer:u_mlp|acc[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.007      ; 9.136      ;
+; -8.097 ; mlp_infer:u_mlp|neuron_idx[5]              ; mlp_infer:u_mlp|acc[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.042     ; 9.087      ;
+; -8.096 ; mlp_infer:u_mlp|input_idx[4]               ; mlp_infer:u_mlp|acc[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.012      ; 9.140      ;
+; -8.089 ; mlp_infer:u_mlp|input_idx[2]               ; mlp_infer:u_mlp|acc[18] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.012      ; 9.133      ;
+; -8.087 ; mlp_infer:u_mlp|input_idx[0]               ; mlp_infer:u_mlp|acc[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.007      ; 9.126      ;
+; -8.085 ; mlp_infer:u_mlp|input_idx[1]               ; mlp_infer:u_mlp|acc[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.007      ; 9.124      ;
+; -8.079 ; mlp_infer:u_mlp|input_idx[0]               ; mlp_infer:u_mlp|acc[18] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.012      ; 9.123      ;
+; -8.077 ; mlp_infer:u_mlp|input_idx[1]               ; mlp_infer:u_mlp|acc[18] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.012      ; 9.121      ;
+; -8.075 ; mlp_infer:u_mlp|neuron_idx[6]              ; mlp_infer:u_mlp|acc[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.042     ; 9.065      ;
+; -8.075 ; mlp_infer:u_mlp|neuron_idx[7]              ; mlp_infer:u_mlp|acc[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.042     ; 9.065      ;
+; -8.075 ; mlp_infer:u_mlp|neuron_idx[8]              ; mlp_infer:u_mlp|acc[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.042     ; 9.065      ;
+; -8.075 ; mlp_infer:u_mlp|neuron_idx[9]              ; mlp_infer:u_mlp|acc[20] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.042     ; 9.065      ;
+; -8.074 ; mlp_infer:u_mlp|input_idx[4]               ; mlp_infer:u_mlp|acc[14] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.012      ; 9.118      ;
+; -8.071 ; mlp_infer:u_mlp|input_idx[7]               ; mlp_infer:u_mlp|acc[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.007      ; 9.110      ;
+; -8.071 ; mlp_infer:u_mlp|input_idx[5]               ; mlp_infer:u_mlp|acc[9]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.008      ; 9.111      ;
+; -8.070 ; mlp_infer:u_mlp|input_idx[4]               ; mlp_infer:u_mlp|acc[10] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.012      ; 9.114      ;
+; -8.070 ; mlp_infer:u_mlp|input_idx[3]               ; mlp_infer:u_mlp|acc[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.007      ; 9.109      ;
+; -8.068 ; mlp_infer:u_mlp|neuron_idx[5]              ; mlp_infer:u_mlp|acc[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; -0.044     ; 9.056      ;
+; -8.062 ; mlp_infer:u_mlp|input_idx[3]               ; mlp_infer:u_mlp|acc[18] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.012      ; 9.106      ;
+; -8.061 ; mlp_infer:u_mlp|input_idx[2]               ; mlp_infer:u_mlp|acc[17] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.012      ; 9.105      ;
+; -8.056 ; mlp_infer:u_mlp|input_idx[5]               ; mlp_infer:u_mlp|acc[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.012      ; 9.100      ;
+; -8.053 ; mlp_infer:u_mlp|input_idx[2]               ; mlp_infer:u_mlp|acc[13] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.007      ; 9.092      ;
+; -8.051 ; mlp_infer:u_mlp|input_idx[0]               ; mlp_infer:u_mlp|acc[17] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.012      ; 9.095      ;
+; -8.050 ; mlp_infer:u_mlp|input_idx[4]               ; mlp_infer:u_mlp|acc[5]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.009      ; 9.091      ;
+; -8.049 ; mlp_infer:u_mlp|input_idx[1]               ; mlp_infer:u_mlp|acc[17] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.012      ; 9.093      ;
++--------+--------------------------------------------+-------------------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Hold: 'CLOCK_50'                                                                                                                     ;
++-------+---------------------------------+---------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                       ; To Node                         ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+---------------------------------+---------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.215 ; uart_rx:u_rx|cnt[0]             ; uart_rx:u_rx|cnt[0]             ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; uart_rx:u_rx|cnt[1]             ; uart_rx:u_rx|cnt[1]             ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; uart_rx:u_rx|cnt[2]             ; uart_rx:u_rx|cnt[2]             ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; uart_rx:u_rx|cnt[3]             ; uart_rx:u_rx|cnt[3]             ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; uart_rx:u_rx|cnt[4]             ; uart_rx:u_rx|cnt[4]             ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; uart_rx:u_rx|cnt[5]             ; uart_rx:u_rx|cnt[5]             ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; uart_rx:u_rx|cnt[6]             ; uart_rx:u_rx|cnt[6]             ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; uart_rx:u_rx|cnt[7]             ; uart_rx:u_rx|cnt[7]             ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; uart_rx:u_rx|cnt[8]             ; uart_rx:u_rx|cnt[8]             ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; uart_rx:u_rx|cnt[9]             ; uart_rx:u_rx|cnt[9]             ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; uart_rx:u_rx|bit_idx[0]         ; uart_rx:u_rx|bit_idx[0]         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; uart_rx:u_rx|bit_idx[2]         ; uart_rx:u_rx|bit_idx[2]         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; uart_rx:u_rx|bit_idx[1]         ; uart_rx:u_rx|bit_idx[1]         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; uart_rx:u_rx|state.DATA         ; uart_rx:u_rx|state.DATA         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; uart_rx:u_rx|state.STOP         ; uart_rx:u_rx|state.STOP         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|state.WAIT   ; pixel_buffer:u_buf|state.WAIT   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|state.RECV   ; pixel_buffer:u_buf|state.RECV   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; mlp_infer:u_mlp|state.S_L1      ; mlp_infer:u_mlp|state.S_L1      ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; mlp_infer:u_mlp|state.S_L2      ; mlp_infer:u_mlp|state.S_L2      ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; mlp_infer:u_mlp|state.S_L3      ; mlp_infer:u_mlp|state.S_L3      ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; mlp_infer:u_mlp|state.S_L4      ; mlp_infer:u_mlp|state.S_L4      ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; mlp_infer:u_mlp|store_neuron    ; mlp_infer:u_mlp|store_neuron    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; mlp_infer:u_mlp|am_cnt[2]       ; mlp_infer:u_mlp|am_cnt[2]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; mlp_infer:u_mlp|am_cnt[3]       ; mlp_infer:u_mlp|am_cnt[3]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; mlp_infer:u_mlp|am_cnt[1]       ; mlp_infer:u_mlp|am_cnt[1]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; mlp_infer:u_mlp|am_cnt[0]       ; mlp_infer:u_mlp|am_cnt[0]       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[2144] ; pixel_buffer:u_buf|pixels[2144] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[1120] ; pixel_buffer:u_buf|pixels[1120] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[2016] ; pixel_buffer:u_buf|pixels[2016] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[992]  ; pixel_buffer:u_buf|pixels[992]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[1504] ; pixel_buffer:u_buf|pixels[1504] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[1632] ; pixel_buffer:u_buf|pixels[1632] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[608]  ; pixel_buffer:u_buf|pixels[608]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[480]  ; pixel_buffer:u_buf|pixels[480]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[1760] ; pixel_buffer:u_buf|pixels[1760] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[736]  ; pixel_buffer:u_buf|pixels[736]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[864]  ; pixel_buffer:u_buf|pixels[864]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[1888] ; pixel_buffer:u_buf|pixels[1888] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[1376] ; pixel_buffer:u_buf|pixels[1376] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[352]  ; pixel_buffer:u_buf|pixels[352]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[1248] ; pixel_buffer:u_buf|pixels[1248] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[224]  ; pixel_buffer:u_buf|pixels[224]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[1000] ; pixel_buffer:u_buf|pixels[1000] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[2024] ; pixel_buffer:u_buf|pixels[2024] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[488]  ; pixel_buffer:u_buf|pixels[488]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[1512] ; pixel_buffer:u_buf|pixels[1512] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[1128] ; pixel_buffer:u_buf|pixels[1128] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[2152] ; pixel_buffer:u_buf|pixels[2152] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[616]  ; pixel_buffer:u_buf|pixels[616]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[1640] ; pixel_buffer:u_buf|pixels[1640] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[872]  ; pixel_buffer:u_buf|pixels[872]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[1896] ; pixel_buffer:u_buf|pixels[1896] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[1384] ; pixel_buffer:u_buf|pixels[1384] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[360]  ; pixel_buffer:u_buf|pixels[360]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[1768] ; pixel_buffer:u_buf|pixels[1768] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[744]  ; pixel_buffer:u_buf|pixels[744]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[232]  ; pixel_buffer:u_buf|pixels[232]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[1256] ; pixel_buffer:u_buf|pixels[1256] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[1824] ; pixel_buffer:u_buf|pixels[1824] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[800]  ; pixel_buffer:u_buf|pixels[800]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[1312] ; pixel_buffer:u_buf|pixels[1312] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[288]  ; pixel_buffer:u_buf|pixels[288]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[1696] ; pixel_buffer:u_buf|pixels[1696] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[672]  ; pixel_buffer:u_buf|pixels[672]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[1184] ; pixel_buffer:u_buf|pixels[1184] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[160]  ; pixel_buffer:u_buf|pixels[160]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[1952] ; pixel_buffer:u_buf|pixels[1952] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[928]  ; pixel_buffer:u_buf|pixels[928]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[416]  ; pixel_buffer:u_buf|pixels[416]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[1440] ; pixel_buffer:u_buf|pixels[1440] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[1056] ; pixel_buffer:u_buf|pixels[1056] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[2080] ; pixel_buffer:u_buf|pixels[2080] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[544]  ; pixel_buffer:u_buf|pixels[544]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[1568] ; pixel_buffer:u_buf|pixels[1568] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[1064] ; pixel_buffer:u_buf|pixels[1064] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[2088] ; pixel_buffer:u_buf|pixels[2088] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[1832] ; pixel_buffer:u_buf|pixels[1832] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[808]  ; pixel_buffer:u_buf|pixels[808]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[552]  ; pixel_buffer:u_buf|pixels[552]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[1576] ; pixel_buffer:u_buf|pixels[1576] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[1320] ; pixel_buffer:u_buf|pixels[1320] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[296]  ; pixel_buffer:u_buf|pixels[296]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[424]  ; pixel_buffer:u_buf|pixels[424]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[1448] ; pixel_buffer:u_buf|pixels[1448] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[1192] ; pixel_buffer:u_buf|pixels[1192] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[168]  ; pixel_buffer:u_buf|pixels[168]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[936]  ; pixel_buffer:u_buf|pixels[936]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[1960] ; pixel_buffer:u_buf|pixels[1960] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[680]  ; pixel_buffer:u_buf|pixels[680]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[1704] ; pixel_buffer:u_buf|pixels[1704] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[1280] ; pixel_buffer:u_buf|pixels[1280] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[256]  ; pixel_buffer:u_buf|pixels[256]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[128]  ; pixel_buffer:u_buf|pixels[128]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[1152] ; pixel_buffer:u_buf|pixels[1152] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[640]  ; pixel_buffer:u_buf|pixels[640]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[768]  ; pixel_buffer:u_buf|pixels[768]  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[1792] ; pixel_buffer:u_buf|pixels[1792] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[1664] ; pixel_buffer:u_buf|pixels[1664] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[2048] ; pixel_buffer:u_buf|pixels[2048] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; pixel_buffer:u_buf|pixels[1024] ; pixel_buffer:u_buf|pixels[1024] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
++-------+---------------------------------+---------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Fast Model Minimum Pulse Width: 'CLOCK_50'                                                                         ;
++--------+--------------+----------------+------------------+----------+------------+--------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock    ; Clock Edge ; Target                         ;
++--------+--------------+----------------+------------------+----------+------------+--------------------------------+
+; -1.519 ; 0.500        ; 2.019          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[0]  ;
+; -1.519 ; 0.500        ; 2.019          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[0]  ;
+; -1.519 ; 0.500        ; 2.019          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[10] ;
+; -1.519 ; 0.500        ; 2.019          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[10] ;
+; -1.519 ; 0.500        ; 2.019          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[11] ;
+; -1.519 ; 0.500        ; 2.019          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[11] ;
+; -1.519 ; 0.500        ; 2.019          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[12] ;
+; -1.519 ; 0.500        ; 2.019          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[12] ;
+; -1.519 ; 0.500        ; 2.019          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[13] ;
+; -1.519 ; 0.500        ; 2.019          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[13] ;
+; -1.519 ; 0.500        ; 2.019          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[14] ;
+; -1.519 ; 0.500        ; 2.019          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[14] ;
+; -1.519 ; 0.500        ; 2.019          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[15] ;
+; -1.519 ; 0.500        ; 2.019          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[15] ;
+; -1.519 ; 0.500        ; 2.019          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[16] ;
+; -1.519 ; 0.500        ; 2.019          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[16] ;
+; -1.519 ; 0.500        ; 2.019          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[1]  ;
+; -1.519 ; 0.500        ; 2.019          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[1]  ;
+; -1.519 ; 0.500        ; 2.019          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[2]  ;
+; -1.519 ; 0.500        ; 2.019          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[2]  ;
+; -1.519 ; 0.500        ; 2.019          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[3]  ;
+; -1.519 ; 0.500        ; 2.019          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[3]  ;
+; -1.519 ; 0.500        ; 2.019          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[4]  ;
+; -1.519 ; 0.500        ; 2.019          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[4]  ;
+; -1.519 ; 0.500        ; 2.019          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[5]  ;
+; -1.519 ; 0.500        ; 2.019          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[5]  ;
+; -1.519 ; 0.500        ; 2.019          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[6]  ;
+; -1.519 ; 0.500        ; 2.019          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[6]  ;
+; -1.519 ; 0.500        ; 2.019          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[7]  ;
+; -1.519 ; 0.500        ; 2.019          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[7]  ;
+; -1.519 ; 0.500        ; 2.019          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[8]  ;
+; -1.519 ; 0.500        ; 2.019          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[8]  ;
+; -1.519 ; 0.500        ; 2.019          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[9]  ;
+; -1.519 ; 0.500        ; 2.019          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|neuron_idx[9]  ;
+; -1.380 ; 1.000        ; 2.380          ; Port Rate        ; CLOCK_50 ; Rise       ; CLOCK_50                       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; last_result[0]                 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; last_result[0]                 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; last_result[1]                 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; last_result[1]                 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; last_result[2]                 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; last_result[2]                 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; last_result[3]                 ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; last_result[3]                 ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[0][0]       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[0][0]       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[0][1]       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[0][1]       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[0][2]       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[0][2]       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[0][3]       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[0][3]       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[0][4]       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[0][4]       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[0][5]       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[0][5]       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[0][6]       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[0][6]       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[100][0]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[100][0]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[100][1]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[100][1]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[100][2]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[100][2]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[100][3]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[100][3]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[100][4]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[100][4]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[100][5]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[100][5]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[100][6]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[100][6]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[101][0]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[101][0]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[101][1]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[101][1]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[101][2]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[101][2]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[101][3]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[101][3]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[101][4]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[101][4]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[101][5]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[101][5]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[101][6]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[101][6]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[102][0]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[102][0]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[102][1]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[102][1]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[102][2]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[102][2]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[102][3]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[102][3]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[102][4]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[102][4]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[102][5]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[102][5]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[102][6]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[102][6]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; mlp_infer:u_mlp|a1[103][0]     ;
++--------+--------------+----------------+------------------+----------+------------+--------------------------------+
+
+
++------------------------------------------------------------------------+
+; Setup Times                                                            ;
++------------+------------+-------+-------+------------+-----------------+
+; Data Port  ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++------------+------------+-------+-------+------------+-----------------+
+; GPIO_1[*]  ; CLOCK_50   ; 2.736 ; 2.736 ; Rise       ; CLOCK_50        ;
+;  GPIO_1[0] ; CLOCK_50   ; 2.736 ; 2.736 ; Rise       ; CLOCK_50        ;
+; KEY0       ; CLOCK_50   ; 8.423 ; 8.423 ; Rise       ; CLOCK_50        ;
++------------+------------+-------+-------+------------+-----------------+
+
+
++--------------------------------------------------------------------------+
+; Hold Times                                                               ;
++------------+------------+--------+--------+------------+-----------------+
+; Data Port  ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++------------+------------+--------+--------+------------+-----------------+
+; GPIO_1[*]  ; CLOCK_50   ; -2.616 ; -2.616 ; Rise       ; CLOCK_50        ;
+;  GPIO_1[0] ; CLOCK_50   ; -2.616 ; -2.616 ; Rise       ; CLOCK_50        ;
+; KEY0       ; CLOCK_50   ; -5.140 ; -5.140 ; Rise       ; CLOCK_50        ;
++------------+------------+--------+--------+------------+-----------------+
+
+
++------------------------------------------------------------------------+
+; Clock to Output Times                                                  ;
++------------+------------+-------+-------+------------+-----------------+
+; Data Port  ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++------------+------------+-------+-------+------------+-----------------+
+; GPIO_1[*]  ; CLOCK_50   ; 4.288 ; 4.288 ; Rise       ; CLOCK_50        ;
+;  GPIO_1[1] ; CLOCK_50   ; 4.288 ; 4.288 ; Rise       ; CLOCK_50        ;
+; HEX0[*]    ; CLOCK_50   ; 5.618 ; 5.618 ; Rise       ; CLOCK_50        ;
+;  HEX0[0]   ; CLOCK_50   ; 5.498 ; 5.498 ; Rise       ; CLOCK_50        ;
+;  HEX0[1]   ; CLOCK_50   ; 5.465 ; 5.465 ; Rise       ; CLOCK_50        ;
+;  HEX0[2]   ; CLOCK_50   ; 5.479 ; 5.479 ; Rise       ; CLOCK_50        ;
+;  HEX0[3]   ; CLOCK_50   ; 5.618 ; 5.618 ; Rise       ; CLOCK_50        ;
+;  HEX0[4]   ; CLOCK_50   ; 5.614 ; 5.614 ; Rise       ; CLOCK_50        ;
+;  HEX0[5]   ; CLOCK_50   ; 5.606 ; 5.606 ; Rise       ; CLOCK_50        ;
+;  HEX0[6]   ; CLOCK_50   ; 5.611 ; 5.611 ; Rise       ; CLOCK_50        ;
+; LEDG[*]    ; CLOCK_50   ; 5.525 ; 5.525 ; Rise       ; CLOCK_50        ;
+;  LEDG[0]   ; CLOCK_50   ; 4.731 ; 4.731 ; Rise       ; CLOCK_50        ;
+;  LEDG[1]   ; CLOCK_50   ; 4.826 ; 4.826 ; Rise       ; CLOCK_50        ;
+;  LEDG[2]   ; CLOCK_50   ; 5.525 ; 5.525 ; Rise       ; CLOCK_50        ;
+; LEDR[*]    ; CLOCK_50   ; 5.288 ; 5.288 ; Rise       ; CLOCK_50        ;
+;  LEDR[14]  ; CLOCK_50   ; 3.984 ; 3.984 ; Rise       ; CLOCK_50        ;
+;  LEDR[15]  ; CLOCK_50   ; 3.887 ; 3.887 ; Rise       ; CLOCK_50        ;
+;  LEDR[16]  ; CLOCK_50   ; 5.288 ; 5.288 ; Rise       ; CLOCK_50        ;
+;  LEDR[17]  ; CLOCK_50   ; 3.878 ; 3.878 ; Rise       ; CLOCK_50        ;
++------------+------------+-------+-------+------------+-----------------+
+
+
++------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                          ;
++------------+------------+-------+-------+------------+-----------------+
+; Data Port  ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++------------+------------+-------+-------+------------+-----------------+
+; GPIO_1[*]  ; CLOCK_50   ; 4.288 ; 4.288 ; Rise       ; CLOCK_50        ;
+;  GPIO_1[1] ; CLOCK_50   ; 4.288 ; 4.288 ; Rise       ; CLOCK_50        ;
+; HEX0[*]    ; CLOCK_50   ; 3.878 ; 3.878 ; Rise       ; CLOCK_50        ;
+;  HEX0[0]   ; CLOCK_50   ; 3.911 ; 3.911 ; Rise       ; CLOCK_50        ;
+;  HEX0[1]   ; CLOCK_50   ; 3.878 ; 3.878 ; Rise       ; CLOCK_50        ;
+;  HEX0[2]   ; CLOCK_50   ; 3.882 ; 3.882 ; Rise       ; CLOCK_50        ;
+;  HEX0[3]   ; CLOCK_50   ; 4.022 ; 4.022 ; Rise       ; CLOCK_50        ;
+;  HEX0[4]   ; CLOCK_50   ; 4.025 ; 4.025 ; Rise       ; CLOCK_50        ;
+;  HEX0[5]   ; CLOCK_50   ; 4.012 ; 4.012 ; Rise       ; CLOCK_50        ;
+;  HEX0[6]   ; CLOCK_50   ; 4.013 ; 4.013 ; Rise       ; CLOCK_50        ;
+; LEDG[*]    ; CLOCK_50   ; 4.731 ; 4.731 ; Rise       ; CLOCK_50        ;
+;  LEDG[0]   ; CLOCK_50   ; 4.731 ; 4.731 ; Rise       ; CLOCK_50        ;
+;  LEDG[1]   ; CLOCK_50   ; 4.826 ; 4.826 ; Rise       ; CLOCK_50        ;
+;  LEDG[2]   ; CLOCK_50   ; 5.525 ; 5.525 ; Rise       ; CLOCK_50        ;
+; LEDR[*]    ; CLOCK_50   ; 3.878 ; 3.878 ; Rise       ; CLOCK_50        ;
+;  LEDR[14]  ; CLOCK_50   ; 3.984 ; 3.984 ; Rise       ; CLOCK_50        ;
+;  LEDR[15]  ; CLOCK_50   ; 3.887 ; 3.887 ; Rise       ; CLOCK_50        ;
+;  LEDR[16]  ; CLOCK_50   ; 5.288 ; 5.288 ; Rise       ; CLOCK_50        ;
+;  LEDR[17]  ; CLOCK_50   ; 3.878 ; 3.878 ; Rise       ; CLOCK_50        ;
++------------+------------+-------+-------+------------+-----------------+
+
+
++----------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                              ;
++------------------+------------+-------+----------+---------+---------------------+
+; Clock            ; Setup      ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+------------+-------+----------+---------+---------------------+
+; Worst-case Slack ; -21.394    ; 0.215 ; N/A      ; N/A     ; -1.519              ;
+;  CLOCK_50        ; -21.394    ; 0.215 ; N/A      ; N/A     ; -1.519              ;
+; Design-wide TNS  ; -53270.978 ; 0.0   ; 0.0      ; 0.0     ; -8223.026           ;
+;  CLOCK_50        ; -53270.978 ; 0.000 ; N/A      ; N/A     ; -8223.026           ;
++------------------+------------+-------+----------+---------+---------------------+
+
+
++--------------------------------------------------------------------------+
+; Setup Times                                                              ;
++------------+------------+--------+--------+------------+-----------------+
+; Data Port  ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++------------+------------+--------+--------+------------+-----------------+
+; GPIO_1[*]  ; CLOCK_50   ; 4.951  ; 4.951  ; Rise       ; CLOCK_50        ;
+;  GPIO_1[0] ; CLOCK_50   ; 4.951  ; 4.951  ; Rise       ; CLOCK_50        ;
+; KEY0       ; CLOCK_50   ; 17.072 ; 17.072 ; Rise       ; CLOCK_50        ;
++------------+------------+--------+--------+------------+-----------------+
+
+
++--------------------------------------------------------------------------+
+; Hold Times                                                               ;
++------------+------------+--------+--------+------------+-----------------+
+; Data Port  ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++------------+------------+--------+--------+------------+-----------------+
+; GPIO_1[*]  ; CLOCK_50   ; -2.616 ; -2.616 ; Rise       ; CLOCK_50        ;
+;  GPIO_1[0] ; CLOCK_50   ; -2.616 ; -2.616 ; Rise       ; CLOCK_50        ;
+; KEY0       ; CLOCK_50   ; -5.140 ; -5.140 ; Rise       ; CLOCK_50        ;
++------------+------------+--------+--------+------------+-----------------+
+
+
++--------------------------------------------------------------------------+
+; Clock to Output Times                                                    ;
++------------+------------+--------+--------+------------+-----------------+
+; Data Port  ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++------------+------------+--------+--------+------------+-----------------+
+; GPIO_1[*]  ; CLOCK_50   ; 7.701  ; 7.701  ; Rise       ; CLOCK_50        ;
+;  GPIO_1[1] ; CLOCK_50   ; 7.701  ; 7.701  ; Rise       ; CLOCK_50        ;
+; HEX0[*]    ; CLOCK_50   ; 10.358 ; 10.358 ; Rise       ; CLOCK_50        ;
+;  HEX0[0]   ; CLOCK_50   ; 10.109 ; 10.109 ; Rise       ; CLOCK_50        ;
+;  HEX0[1]   ; CLOCK_50   ; 10.074 ; 10.074 ; Rise       ; CLOCK_50        ;
+;  HEX0[2]   ; CLOCK_50   ; 10.088 ; 10.088 ; Rise       ; CLOCK_50        ;
+;  HEX0[3]   ; CLOCK_50   ; 10.358 ; 10.358 ; Rise       ; CLOCK_50        ;
+;  HEX0[4]   ; CLOCK_50   ; 10.351 ; 10.351 ; Rise       ; CLOCK_50        ;
+;  HEX0[5]   ; CLOCK_50   ; 10.349 ; 10.349 ; Rise       ; CLOCK_50        ;
+;  HEX0[6]   ; CLOCK_50   ; 10.353 ; 10.353 ; Rise       ; CLOCK_50        ;
+; LEDG[*]    ; CLOCK_50   ; 10.224 ; 10.224 ; Rise       ; CLOCK_50        ;
+;  LEDG[0]   ; CLOCK_50   ; 8.585  ; 8.585  ; Rise       ; CLOCK_50        ;
+;  LEDG[1]   ; CLOCK_50   ; 8.815  ; 8.815  ; Rise       ; CLOCK_50        ;
+;  LEDG[2]   ; CLOCK_50   ; 10.224 ; 10.224 ; Rise       ; CLOCK_50        ;
+; LEDR[*]    ; CLOCK_50   ; 9.526  ; 9.526  ; Rise       ; CLOCK_50        ;
+;  LEDR[14]  ; CLOCK_50   ; 7.092  ; 7.092  ; Rise       ; CLOCK_50        ;
+;  LEDR[15]  ; CLOCK_50   ; 6.866  ; 6.866  ; Rise       ; CLOCK_50        ;
+;  LEDR[16]  ; CLOCK_50   ; 9.526  ; 9.526  ; Rise       ; CLOCK_50        ;
+;  LEDR[17]  ; CLOCK_50   ; 6.854  ; 6.854  ; Rise       ; CLOCK_50        ;
++------------+------------+--------+--------+------------+-----------------+
+
+
++------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                          ;
++------------+------------+-------+-------+------------+-----------------+
+; Data Port  ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++------------+------------+-------+-------+------------+-----------------+
+; GPIO_1[*]  ; CLOCK_50   ; 4.288 ; 4.288 ; Rise       ; CLOCK_50        ;
+;  GPIO_1[1] ; CLOCK_50   ; 4.288 ; 4.288 ; Rise       ; CLOCK_50        ;
+; HEX0[*]    ; CLOCK_50   ; 3.878 ; 3.878 ; Rise       ; CLOCK_50        ;
+;  HEX0[0]   ; CLOCK_50   ; 3.911 ; 3.911 ; Rise       ; CLOCK_50        ;
+;  HEX0[1]   ; CLOCK_50   ; 3.878 ; 3.878 ; Rise       ; CLOCK_50        ;
+;  HEX0[2]   ; CLOCK_50   ; 3.882 ; 3.882 ; Rise       ; CLOCK_50        ;
+;  HEX0[3]   ; CLOCK_50   ; 4.022 ; 4.022 ; Rise       ; CLOCK_50        ;
+;  HEX0[4]   ; CLOCK_50   ; 4.025 ; 4.025 ; Rise       ; CLOCK_50        ;
+;  HEX0[5]   ; CLOCK_50   ; 4.012 ; 4.012 ; Rise       ; CLOCK_50        ;
+;  HEX0[6]   ; CLOCK_50   ; 4.013 ; 4.013 ; Rise       ; CLOCK_50        ;
+; LEDG[*]    ; CLOCK_50   ; 4.731 ; 4.731 ; Rise       ; CLOCK_50        ;
+;  LEDG[0]   ; CLOCK_50   ; 4.731 ; 4.731 ; Rise       ; CLOCK_50        ;
+;  LEDG[1]   ; CLOCK_50   ; 4.826 ; 4.826 ; Rise       ; CLOCK_50        ;
+;  LEDG[2]   ; CLOCK_50   ; 5.525 ; 5.525 ; Rise       ; CLOCK_50        ;
+; LEDR[*]    ; CLOCK_50   ; 3.878 ; 3.878 ; Rise       ; CLOCK_50        ;
+;  LEDR[14]  ; CLOCK_50   ; 3.984 ; 3.984 ; Rise       ; CLOCK_50        ;
+;  LEDR[15]  ; CLOCK_50   ; 3.887 ; 3.887 ; Rise       ; CLOCK_50        ;
+;  LEDR[16]  ; CLOCK_50   ; 5.288 ; 5.288 ; Rise       ; CLOCK_50        ;
+;  LEDR[17]  ; CLOCK_50   ; 3.878 ; 3.878 ; Rise       ; CLOCK_50        ;
++------------+------------+-------+-------+------------+-----------------+
+
+
++---------------------------------------------------------------------+
+; Setup Transfers                                                     ;
++------------+----------+------------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths   ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+------------+----------+----------+----------+
+; CLOCK_50   ; CLOCK_50 ; 2041524100 ; 0        ; 0        ; 0        ;
++------------+----------+------------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++---------------------------------------------------------------------+
+; Hold Transfers                                                      ;
++------------+----------+------------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths   ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+------------+----------+----------+----------+
+; CLOCK_50   ; CLOCK_50 ; 2041524100 ; 0        ; 0        ; 0        ;
++------------+----------+------------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 2     ; 2    ;
+; Unconstrained Input Port Paths  ; 8188  ; 8188 ;
+; Unconstrained Output Ports      ; 15    ; 15   ;
+; Unconstrained Output Port Paths ; 36    ; 36   ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Mon May 11 11:38:29 2026
+Info: Command: quartus_sta mnist_top -c mnist_top
+Info: qsta_default_script.tcl version: #1
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'mnist_top.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name CLOCK_50 CLOCK_50
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow Model
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -21.394
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):   -21.394    -53270.978 CLOCK_50 
+Info (332146): Worst-case hold slack is 0.391
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.391         0.000 CLOCK_50 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -1.423
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.423     -8219.762 CLOCK_50 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info: Analyzing Fast Model
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -8.681
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -8.681    -20772.557 CLOCK_50 
+Info (332146): Worst-case hold slack is 0.215
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.215         0.000 CLOCK_50 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -1.519
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.519     -8223.026 CLOCK_50 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 4882 megabytes
+    Info: Processing ended: Mon May 11 11:38:36 2026
+    Info: Elapsed time: 00:00:07
+    Info: Total CPU time (on all processors): 00:00:06
+
+

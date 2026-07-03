@@ -1,0 +1,1277 @@
+Analysis & Synthesis report for mnist_top
+Mon May 11 11:34:11 2026
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis DSP Block Usage Summary
+  9. State Machine - |mnist_top|mlp_infer:u_mlp|state
+ 10. State Machine - |mnist_top|pixel_buffer:u_buf|state
+ 11. State Machine - |mnist_top|uart_rx:u_rx|state
+ 12. Registers Removed During Synthesis
+ 13. General Register Statistics
+ 14. Inverted Register Statistics
+ 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 16. Parameter Settings for User Entity Instance: uart_rx:u_rx
+ 17. Parameter Settings for User Entity Instance: uart_tx:u_tx
+ 18. Parameter Settings for Inferred Entity Instance: mlp_infer:u_mlp|lpm_mult:Mult4
+ 19. Parameter Settings for Inferred Entity Instance: mlp_infer:u_mlp|lpm_mult:Mult3
+ 20. Parameter Settings for Inferred Entity Instance: mlp_infer:u_mlp|lpm_mult:Mult2
+ 21. Parameter Settings for Inferred Entity Instance: mlp_infer:u_mlp|lpm_mult:Mult1
+ 22. Parameter Settings for Inferred Entity Instance: mlp_infer:u_mlp|lpm_mult:Mult0
+ 23. lpm_mult Parameter Settings by Entity Instance
+ 24. Port Connectivity Checks: "uart_tx:u_tx"
+ 25. Elapsed Time Per Partition
+ 26. Analysis & Synthesis Messages
+ 27. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Mon May 11 11:34:10 2026           ;
+; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
+; Revision Name                      ; mnist_top                                       ;
+; Top-level Entity Name              ; mnist_top                                       ;
+; Family                             ; Cyclone II                                      ;
+; Total logic elements               ; 27,762                                          ;
+;     Total combinational functions  ; 26,017                                          ;
+;     Dedicated logic registers      ; 8,170                                           ;
+; Total registers                    ; 8170                                            ;
+; Total pins                         ; 72                                              ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 0                                               ;
+; Embedded Multiplier 9-bit elements ; 2                                               ;
+; Total PLLs                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP2C35F672C6       ;                    ;
+; Top-level entity name                                                      ; mnist_top          ; mnist_top          ;
+; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 12     ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                      ;
++----------------------------------+-----------------+---------------------------------------------+----------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                                   ; File Name with Absolute Path                                   ; Library ;
++----------------------------------+-----------------+---------------------------------------------+----------------------------------------------------------------+---------+
+; mnist_top.v                      ; yes             ; User Verilog HDL File                       ; C:/Users/sriga/OneDrive/Desktop/mlp_digit_try1/mnist_top.v     ;         ;
+; fc3_weights.hex                  ; yes             ; Auto-Found Hexadecimal (Intel-Format) File  ; C:/Users/sriga/OneDrive/Desktop/mlp_digit_try1/fc3_weights.hex ;         ;
+; fc2_bias.hex                     ; yes             ; Auto-Found Hexadecimal (Intel-Format) File  ; C:/Users/sriga/OneDrive/Desktop/mlp_digit_try1/fc2_bias.hex    ;         ;
+; fc1_bias.hex                     ; yes             ; Auto-Found Hexadecimal (Intel-Format) File  ; C:/Users/sriga/OneDrive/Desktop/mlp_digit_try1/fc1_bias.hex    ;         ;
+; fc2_weights.hex                  ; yes             ; Auto-Found Hexadecimal (Intel-Format) File  ; C:/Users/sriga/OneDrive/Desktop/mlp_digit_try1/fc2_weights.hex ;         ;
+; fc1_weights.hex                  ; yes             ; Auto-Found Hexadecimal (Intel-Format) File  ; C:/Users/sriga/OneDrive/Desktop/mlp_digit_try1/fc1_weights.hex ;         ;
+; fc4_bias.hex                     ; yes             ; Auto-Found Hexadecimal (Intel-Format) File  ; C:/Users/sriga/OneDrive/Desktop/mlp_digit_try1/fc4_bias.hex    ;         ;
+; fc4_weights.hex                  ; yes             ; Auto-Found Hexadecimal (Intel-Format) File  ; C:/Users/sriga/OneDrive/Desktop/mlp_digit_try1/fc4_weights.hex ;         ;
+; fc3_bias.hex                     ; yes             ; Auto-Found Hexadecimal (Intel-Format) File  ; C:/Users/sriga/OneDrive/Desktop/mlp_digit_try1/fc3_bias.hex    ;         ;
+; lpm_mult.tdf                     ; yes             ; Megafunction                                ; c:/quartus/quartus/libraries/megafunctions/lpm_mult.tdf        ;         ;
+; aglobal130.inc                   ; yes             ; Megafunction                                ; c:/quartus/quartus/libraries/megafunctions/aglobal130.inc      ;         ;
+; lpm_add_sub.inc                  ; yes             ; Megafunction                                ; c:/quartus/quartus/libraries/megafunctions/lpm_add_sub.inc     ;         ;
+; multcore.inc                     ; yes             ; Megafunction                                ; c:/quartus/quartus/libraries/megafunctions/multcore.inc        ;         ;
+; bypassff.inc                     ; yes             ; Megafunction                                ; c:/quartus/quartus/libraries/megafunctions/bypassff.inc        ;         ;
+; altshift.inc                     ; yes             ; Megafunction                                ; c:/quartus/quartus/libraries/megafunctions/altshift.inc        ;         ;
+; db/mult_dus.tdf                  ; yes             ; Auto-Generated Megafunction                 ; C:/Users/sriga/OneDrive/Desktop/mlp_digit_try1/db/mult_dus.tdf ;         ;
+; db/mult_7ct.tdf                  ; yes             ; Auto-Generated Megafunction                 ; C:/Users/sriga/OneDrive/Desktop/mlp_digit_try1/db/mult_7ct.tdf ;         ;
++----------------------------------+-----------------+---------------------------------------------+----------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary            ;
++---------------------------------------------+----------+
+; Resource                                    ; Usage    ;
++---------------------------------------------+----------+
+; Estimated Total logic elements              ; 27,762   ;
+;                                             ;          ;
+; Total combinational functions               ; 26017    ;
+; Logic element usage by number of LUT inputs ;          ;
+;     -- 4 input functions                    ; 21004    ;
+;     -- 3 input functions                    ; 4509     ;
+;     -- <=2 input functions                  ; 504      ;
+;                                             ;          ;
+; Logic elements by mode                      ;          ;
+;     -- normal mode                          ; 25759    ;
+;     -- arithmetic mode                      ; 258      ;
+;                                             ;          ;
+; Total registers                             ; 8170     ;
+;     -- Dedicated logic registers            ; 8170     ;
+;     -- I/O registers                        ; 0        ;
+;                                             ;          ;
+; I/O pins                                    ; 72       ;
+; Embedded Multiplier 9-bit elements          ; 2        ;
+; Maximum fan-out node                        ; CLOCK_50 ;
+; Maximum fan-out                             ; 8170     ;
+; Total fan-out                               ; 118710   ;
+; Average fan-out                             ; 3.46     ;
++---------------------------------------------+----------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                               ;
++------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node         ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                               ; Library Name ;
++------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------+--------------+
+; |mnist_top                         ; 26017 (9)         ; 8170 (4)     ; 0           ; 2            ; 0       ; 1         ; 72   ; 0            ; |mnist_top                                                        ; work         ;
+;    |mlp_infer:u_mlp|               ; 19161 (18968)     ; 1814 (1814)  ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |mnist_top|mlp_infer:u_mlp                                        ; work         ;
+;       |lpm_mult:Mult0|             ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |mnist_top|mlp_infer:u_mlp|lpm_mult:Mult0                         ; work         ;
+;          |mult_7ct:auto_generated| ; 0 (0)             ; 0 (0)        ; 0           ; 2            ; 0       ; 1         ; 0    ; 0            ; |mnist_top|mlp_infer:u_mlp|lpm_mult:Mult0|mult_7ct:auto_generated ; work         ;
+;       |lpm_mult:Mult1|             ; 49 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mnist_top|mlp_infer:u_mlp|lpm_mult:Mult1                         ; work         ;
+;          |mult_dus:auto_generated| ; 49 (49)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mnist_top|mlp_infer:u_mlp|lpm_mult:Mult1|mult_dus:auto_generated ; work         ;
+;       |lpm_mult:Mult2|             ; 48 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mnist_top|mlp_infer:u_mlp|lpm_mult:Mult2                         ; work         ;
+;          |mult_dus:auto_generated| ; 48 (48)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mnist_top|mlp_infer:u_mlp|lpm_mult:Mult2|mult_dus:auto_generated ; work         ;
+;       |lpm_mult:Mult3|             ; 48 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mnist_top|mlp_infer:u_mlp|lpm_mult:Mult3                         ; work         ;
+;          |mult_dus:auto_generated| ; 48 (48)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mnist_top|mlp_infer:u_mlp|lpm_mult:Mult3|mult_dus:auto_generated ; work         ;
+;       |lpm_mult:Mult4|             ; 48 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mnist_top|mlp_infer:u_mlp|lpm_mult:Mult4                         ; work         ;
+;          |mult_dus:auto_generated| ; 48 (48)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mnist_top|mlp_infer:u_mlp|lpm_mult:Mult4|mult_dus:auto_generated ; work         ;
+;    |pixel_buffer:u_buf|            ; 6755 (6755)       ; 6295 (6295)  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mnist_top|pixel_buffer:u_buf                                     ; work         ;
+;    |seg7:u_seg|                    ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mnist_top|seg7:u_seg                                             ; work         ;
+;    |uart_rx:u_rx|                  ; 52 (52)           ; 36 (36)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mnist_top|uart_rx:u_rx                                           ; work         ;
+;    |uart_tx:u_tx|                  ; 33 (33)           ; 21 (21)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mnist_top|uart_tx:u_tx                                           ; work         ;
++------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary        ;
++---------------------------------------+-------------+
+; Statistic                             ; Number Used ;
++---------------------------------------+-------------+
+; Simple Multipliers (9-bit)            ; 0           ;
+; Simple Multipliers (18-bit)           ; 1           ;
+; Embedded Multiplier Blocks            ; --          ;
+; Embedded Multiplier 9-bit elements    ; 2           ;
+; Signed Embedded Multipliers           ; 0           ;
+; Unsigned Embedded Multipliers         ; 1           ;
+; Mixed Sign Embedded Multipliers       ; 0           ;
+; Variable Sign Embedded Multipliers    ; 0           ;
+; Dedicated Input Shift Register Chains ; 0           ;
++---------------------------------------+-------------+
+Note: number of Embedded Multiplier Blocks used is only available after a successful fit.
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------+
+; State Machine - |mnist_top|mlp_infer:u_mlp|state                                ;
++--------------+------------+------------+------------+--------------+------------+
+; Name         ; state.S_L3 ; state.S_L2 ; state.S_L1 ; state.S_IDLE ; state.S_L4 ;
++--------------+------------+------------+------------+--------------+------------+
+; state.S_IDLE ; 0          ; 0          ; 0          ; 0            ; 0          ;
+; state.S_L1   ; 0          ; 0          ; 1          ; 1            ; 0          ;
+; state.S_L2   ; 0          ; 1          ; 0          ; 1            ; 0          ;
+; state.S_L3   ; 1          ; 0          ; 0          ; 1            ; 0          ;
+; state.S_L4   ; 0          ; 0          ; 0          ; 1            ; 1          ;
++--------------+------------+------------+------------+--------------+------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------+
+; State Machine - |mnist_top|pixel_buffer:u_buf|state   ;
++--------------+------------+--------------+------------+
+; Name         ; state.WAIT ; state.CHKSUM ; state.RECV ;
++--------------+------------+--------------+------------+
+; state.WAIT   ; 0          ; 0            ; 0          ;
+; state.RECV   ; 1          ; 0            ; 1          ;
+; state.CHKSUM ; 1          ; 1            ; 0          ;
++--------------+------------+--------------+------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------+
+; State Machine - |mnist_top|uart_rx:u_rx|state                    ;
++-------------+------------+------------+-------------+------------+
+; Name        ; state.STOP ; state.DATA ; state.START ; state.IDLE ;
++-------------+------------+------------+-------------+------------+
+; state.IDLE  ; 0          ; 0          ; 0           ; 0          ;
+; state.START ; 0          ; 0          ; 1           ; 1          ;
+; state.DATA  ; 0          ; 1          ; 0           ; 1          ;
+; state.STOP  ; 1          ; 0          ; 0           ; 1          ;
++-------------+------------+------------+-------------+------------+
+
+
++----------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                               ;
++-----------------------------------------+----------------------------------------+
+; Register name                           ; Reason for Removal                     ;
++-----------------------------------------+----------------------------------------+
+; uart_tx:u_tx|frame[0]                   ; Stuck at GND due to stuck port data_in ;
+; uart_tx:u_tx|frame[5..7]                ; Merged with uart_tx:u_tx|frame[8]      ;
+; uart_tx:u_tx|frame[9]                   ; Lost fanout                            ;
+; mlp_infer:u_mlp|state~9                 ; Lost fanout                            ;
+; mlp_infer:u_mlp|state~10                ; Lost fanout                            ;
+; uart_rx:u_rx|state~8                    ; Lost fanout                            ;
+; uart_rx:u_rx|state~9                    ; Lost fanout                            ;
+; mlp_infer:u_mlp|a3[3][7]                ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a3[10][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a3[2][7]                ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a3[11][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a3[5][7]                ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a3[12][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a3[4][7]                ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a3[13][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a3[1][7]                ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a3[8][7]                ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a3[0][7]                ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a3[9][7]                ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a3[7][7]                ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a3[14][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a3[6][7]                ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a3[15][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a3[19][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a3[26][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a3[18][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a3[27][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a3[21][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a3[28][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a3[20][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a3[29][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a3[17][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a3[24][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a3[16][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a3[25][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a3[23][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a3[30][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a3[22][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a3[31][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[26][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[42][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[10][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[58][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[19][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[35][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[3][7]                ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[51][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[18][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[34][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[2][7]                ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[50][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[27][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[43][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[11][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[59][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[21][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[37][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[5][7]                ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[53][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[28][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[44][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[12][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[60][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[20][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[36][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[4][7]                ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[52][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[29][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[45][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[13][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[61][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[17][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[33][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[1][7]                ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[49][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[24][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[40][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[8][7]                ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[56][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[16][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[32][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[0][7]                ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[48][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[25][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[41][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[9][7]                ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[57][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[30][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[46][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[14][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[62][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[23][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[39][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[7][7]                ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[55][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[22][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[38][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[6][7]                ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[54][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[31][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[47][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[15][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a2[63][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[42][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[26][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[10][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[58][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[19][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[35][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[3][7]                ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[51][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[18][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[34][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[2][7]                ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[50][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[43][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[27][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[11][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[59][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[21][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[37][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[5][7]                ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[53][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[44][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[28][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[12][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[60][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[20][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[36][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[4][7]                ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[52][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[45][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[29][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[13][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[61][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[17][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[33][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[1][7]                ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[49][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[40][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[24][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[8][7]                ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[56][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[16][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[32][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[0][7]                ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[48][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[41][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[25][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[9][7]                ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[57][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[46][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[30][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[14][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[62][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[23][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[39][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[7][7]                ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[55][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[22][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[38][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[6][7]                ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[54][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[47][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[31][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[15][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[63][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[106][7]              ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[90][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[74][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[122][7]              ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[83][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[99][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[67][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[115][7]              ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[82][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[98][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[66][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[114][7]              ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[107][7]              ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[91][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[75][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[123][7]              ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[85][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[101][7]              ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[69][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[117][7]              ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[108][7]              ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[92][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[76][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[124][7]              ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[84][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[100][7]              ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[68][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[116][7]              ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[109][7]              ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[93][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[77][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[125][7]              ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[81][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[97][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[65][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[113][7]              ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[104][7]              ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[88][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[72][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[120][7]              ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[80][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[96][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[64][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[112][7]              ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[105][7]              ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[89][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[73][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[121][7]              ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[110][7]              ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[94][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[78][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[126][7]              ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[87][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[103][7]              ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[71][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[119][7]              ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[86][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[102][7]              ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[70][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[118][7]              ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[111][7]              ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[95][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[79][7]               ; Stuck at GND due to stuck port data_in ;
+; mlp_infer:u_mlp|a1[127][7]              ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 233 ;                                        ;
++-----------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 8170  ;
+; Number of registers using Synchronous Clear  ; 45    ;
+; Number of registers using Synchronous Load   ; 11    ;
+; Number of registers using Asynchronous Clear ; 1898  ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 1855  ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; last_result[0]                         ; 8       ;
+; last_result[1]                         ; 8       ;
+; last_result[2]                         ; 8       ;
+; last_result[3]                         ; 8       ;
+; uart_tx:u_tx|tx                        ; 2       ;
+; uart_rx:u_rx|s1                        ; 7       ;
+; uart_rx:u_rx|s0                        ; 1       ;
+; Total number of inverted registers = 7 ;         ;
++----------------------------------------+---------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------+
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|max_idx[1]     ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |mnist_top|mlp_infer:u_mlp|max_val[7]     ;
+; 4:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |mnist_top|uart_tx:u_tx|cnt[5]            ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[127][3]     ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[126][5]     ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[125][4]     ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[124][5]     ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[123][1]     ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[122][4]     ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[121][4]     ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[120][4]     ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[119][6]     ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[118][5]     ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[117][4]     ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[116][3]     ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[115][3]     ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[114][5]     ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[113][2]     ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[112][0]     ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[111][5]     ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[110][2]     ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[109][4]     ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[108][6]     ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[107][6]     ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[106][6]     ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[105][5]     ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[104][2]     ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[103][5]     ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[102][5]     ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[101][3]     ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[100][4]     ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[99][6]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[98][3]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[97][5]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[96][5]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[95][2]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[94][2]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[93][5]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[92][5]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[91][5]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[90][5]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[89][0]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[88][2]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[87][1]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[86][2]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[85][0]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[84][5]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[83][1]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[82][5]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[81][6]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[80][3]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[79][4]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[78][4]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[77][4]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[76][4]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[75][0]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[74][6]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[73][0]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[72][3]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[71][5]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[70][5]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[69][0]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[68][3]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[67][4]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[66][1]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[65][3]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[64][2]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[63][2]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[62][0]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[61][0]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[60][1]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[59][3]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[58][4]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[57][0]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[56][3]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[55][3]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[54][3]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[53][6]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[52][6]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[51][2]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[50][1]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[49][5]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[48][1]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[47][2]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[46][6]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[45][2]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[44][6]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[43][6]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[42][6]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[41][5]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[40][0]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[39][6]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[38][6]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[37][2]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[36][0]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[35][0]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[34][0]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[33][0]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[32][4]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[31][4]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[30][3]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[29][0]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[28][0]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[27][3]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[26][2]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[25][6]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[24][4]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[23][4]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[22][1]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[21][3]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[20][5]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[19][4]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[18][3]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[17][1]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[16][5]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[15][6]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[14][6]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[13][5]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[12][3]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[11][4]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[10][5]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[9][1]       ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[8][6]       ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[7][1]       ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[6][0]       ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[5][2]       ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[4][4]       ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[3][2]       ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[2][4]       ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[1][4]       ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a1[0][4]       ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[63][5]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[62][0]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[61][0]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[60][2]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[59][2]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[58][3]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[57][6]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[56][4]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[55][6]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[54][3]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[53][2]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[52][2]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[51][2]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[50][2]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[49][3]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[48][5]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[47][5]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[46][5]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[45][6]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[44][0]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[43][0]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[42][0]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[41][0]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[40][0]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[39][0]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[38][2]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[37][4]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[36][0]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[35][0]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[34][0]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[33][3]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[32][1]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[31][1]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[30][2]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[29][2]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[28][2]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[27][2]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[26][2]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[25][0]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[24][0]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[23][0]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[22][0]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[21][0]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[20][0]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[19][0]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[18][0]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[17][5]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[16][0]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[15][0]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[14][0]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[13][0]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[12][0]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[11][0]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[10][0]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[9][1]       ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[8][2]       ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[7][0]       ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[6][0]       ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[5][0]       ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[4][0]       ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[3][6]       ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[2][2]       ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[1][5]       ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a2[0][5]       ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a3[31][3]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a3[30][6]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a3[29][6]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a3[28][2]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a3[27][2]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a3[26][1]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a3[25][3]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a3[24][3]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a3[23][6]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a3[22][0]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a3[21][5]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a3[20][5]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a3[19][5]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a3[18][5]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a3[17][5]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a3[16][0]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a3[15][6]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a3[14][6]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a3[13][4]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a3[12][4]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a3[11][5]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a3[10][0]      ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a3[9][4]       ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a3[8][3]       ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a3[7][6]       ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a3[6][6]       ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a3[5][1]       ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a3[4][3]       ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a3[3][2]       ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a3[2][1]       ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a3[1][0]       ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|a3[0][6]       ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |mnist_top|pixel_buffer:u_buf|rsum[1]     ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |mnist_top|uart_tx:u_tx|bit_idx[2]        ;
+; 5:1                ; 10 bits   ; 30 LEs        ; 10 LEs               ; 20 LEs                 ; Yes        ; |mnist_top|pixel_buffer:u_buf|idx[5]      ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |mnist_top|mlp_infer:u_mlp|am_cnt[0]      ;
+; 7:1                ; 3 bits    ; 12 LEs        ; 3 LEs                ; 9 LEs                  ; Yes        ; |mnist_top|uart_rx:u_rx|bit_idx[2]        ;
+; 7:1                ; 4 bits    ; 16 LEs        ; 4 LEs                ; 12 LEs                 ; Yes        ; |mnist_top|uart_rx:u_rx|cnt[7]            ;
+; 9:1                ; 6 bits    ; 36 LEs        ; 12 LEs               ; 24 LEs                 ; Yes        ; |mnist_top|uart_rx:u_rx|cnt[8]            ;
+; 11:1               ; 13 bits   ; 91 LEs        ; 65 LEs               ; 26 LEs                 ; Yes        ; |mnist_top|mlp_infer:u_mlp|acc[13]        ;
+; 12:1               ; 7 bits    ; 56 LEs        ; 42 LEs               ; 14 LEs                 ; Yes        ; |mnist_top|mlp_infer:u_mlp|acc[6]         ;
+; 17:1               ; 10 bits   ; 110 LEs       ; 10 LEs               ; 100 LEs                ; Yes        ; |mnist_top|mlp_infer:u_mlp|input_idx[5]   ;
+; 14:1               ; 17 bits   ; 153 LEs       ; 17 LEs               ; 136 LEs                ; Yes        ; |mnist_top|mlp_infer:u_mlp|neuron_idx[15] ;
+; 10:1               ; 16 bits   ; 96 LEs        ; 96 LEs               ; 0 LEs                  ; No         ; |mnist_top|mlp_infer:u_mlp|Mux1           ;
+; 32:1               ; 8 bits    ; 168 LEs       ; 168 LEs              ; 0 LEs                  ; No         ; |mnist_top|mlp_infer:u_mlp|Mux66          ;
+; 64:1               ; 8 bits    ; 336 LEs       ; 336 LEs              ; 0 LEs                  ; No         ; |mnist_top|mlp_infer:u_mlp|Mux56          ;
+; 128:1              ; 8 bits    ; 680 LEs       ; 680 LEs              ; 0 LEs                  ; No         ; |mnist_top|mlp_infer:u_mlp|Mux44          ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |mnist_top|uart_rx:u_rx|Selector3         ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; No         ; |mnist_top|uart_rx:u_rx|Selector0         ;
+; 1024:1             ; 8 bits    ; 5456 LEs      ; 4176 LEs             ; 1280 LEs               ; No         ; |mnist_top|mlp_infer:u_mlp|Mux35          ;
+; 14:1               ; 5 bits    ; 45 LEs        ; 20 LEs               ; 25 LEs                 ; No         ; |mnist_top|mlp_infer:u_mlp|Selector3      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------+
+
+
++-----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: uart_rx:u_rx ;
++----------------+----------+-------------------------------+
+; Parameter Name ; Value    ; Type                          ;
++----------------+----------+-------------------------------+
+; CLK_HZ         ; 50000000 ; Signed Integer                ;
+; BAUD           ; 115200   ; Signed Integer                ;
++----------------+----------+-------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: uart_tx:u_tx ;
++----------------+----------+-------------------------------+
+; Parameter Name ; Value    ; Type                          ;
++----------------+----------+-------------------------------+
+; CLK_HZ         ; 50000000 ; Signed Integer                ;
+; BAUD           ; 115200   ; Signed Integer                ;
++----------------+----------+-------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: mlp_infer:u_mlp|lpm_mult:Mult4   ;
++------------------------------------------------+------------+---------------------+
+; Parameter Name                                 ; Value      ; Type                ;
++------------------------------------------------+------------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON         ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF        ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON         ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF        ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 4          ; Untyped             ;
+; LPM_WIDTHB                                     ; 8          ; Untyped             ;
+; LPM_WIDTHP                                     ; 12         ; Untyped             ;
+; LPM_WIDTHR                                     ; 12         ; Untyped             ;
+; LPM_WIDTHS                                     ; 1          ; Untyped             ;
+; LPM_REPRESENTATION                             ; SIGNED     ; Untyped             ;
+; LPM_PIPELINE                                   ; 0          ; Untyped             ;
+; LATENCY                                        ; 0          ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO         ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; NO         ; Untyped             ;
+; USE_EAB                                        ; OFF        ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5          ; Untyped             ;
+; DEVICE_FAMILY                                  ; Cyclone II ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL     ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT        ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO       ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0          ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0          ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_dus   ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx         ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx         ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF        ; Untyped             ;
++------------------------------------------------+------------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: mlp_infer:u_mlp|lpm_mult:Mult3   ;
++------------------------------------------------+------------+---------------------+
+; Parameter Name                                 ; Value      ; Type                ;
++------------------------------------------------+------------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON         ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF        ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON         ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF        ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 4          ; Untyped             ;
+; LPM_WIDTHB                                     ; 8          ; Untyped             ;
+; LPM_WIDTHP                                     ; 12         ; Untyped             ;
+; LPM_WIDTHR                                     ; 12         ; Untyped             ;
+; LPM_WIDTHS                                     ; 1          ; Untyped             ;
+; LPM_REPRESENTATION                             ; SIGNED     ; Untyped             ;
+; LPM_PIPELINE                                   ; 0          ; Untyped             ;
+; LATENCY                                        ; 0          ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO         ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; NO         ; Untyped             ;
+; USE_EAB                                        ; OFF        ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5          ; Untyped             ;
+; DEVICE_FAMILY                                  ; Cyclone II ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL     ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT        ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO       ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0          ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0          ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_dus   ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx         ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx         ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF        ; Untyped             ;
++------------------------------------------------+------------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: mlp_infer:u_mlp|lpm_mult:Mult2   ;
++------------------------------------------------+------------+---------------------+
+; Parameter Name                                 ; Value      ; Type                ;
++------------------------------------------------+------------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON         ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF        ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON         ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF        ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 4          ; Untyped             ;
+; LPM_WIDTHB                                     ; 8          ; Untyped             ;
+; LPM_WIDTHP                                     ; 12         ; Untyped             ;
+; LPM_WIDTHR                                     ; 12         ; Untyped             ;
+; LPM_WIDTHS                                     ; 1          ; Untyped             ;
+; LPM_REPRESENTATION                             ; SIGNED     ; Untyped             ;
+; LPM_PIPELINE                                   ; 0          ; Untyped             ;
+; LATENCY                                        ; 0          ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO         ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; NO         ; Untyped             ;
+; USE_EAB                                        ; OFF        ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5          ; Untyped             ;
+; DEVICE_FAMILY                                  ; Cyclone II ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL     ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT        ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO       ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0          ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0          ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_dus   ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx         ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx         ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF        ; Untyped             ;
++------------------------------------------------+------------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: mlp_infer:u_mlp|lpm_mult:Mult1   ;
++------------------------------------------------+------------+---------------------+
+; Parameter Name                                 ; Value      ; Type                ;
++------------------------------------------------+------------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON         ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF        ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON         ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF        ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 4          ; Untyped             ;
+; LPM_WIDTHB                                     ; 8          ; Untyped             ;
+; LPM_WIDTHP                                     ; 12         ; Untyped             ;
+; LPM_WIDTHR                                     ; 12         ; Untyped             ;
+; LPM_WIDTHS                                     ; 1          ; Untyped             ;
+; LPM_REPRESENTATION                             ; SIGNED     ; Untyped             ;
+; LPM_PIPELINE                                   ; 0          ; Untyped             ;
+; LATENCY                                        ; 0          ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO         ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; NO         ; Untyped             ;
+; USE_EAB                                        ; OFF        ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5          ; Untyped             ;
+; DEVICE_FAMILY                                  ; Cyclone II ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL     ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT        ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO       ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0          ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0          ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_dus   ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx         ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx         ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF        ; Untyped             ;
++------------------------------------------------+------------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: mlp_infer:u_mlp|lpm_mult:Mult0   ;
++------------------------------------------------+------------+---------------------+
+; Parameter Name                                 ; Value      ; Type                ;
++------------------------------------------------+------------+---------------------+
+; AUTO_CARRY_CHAINS                              ; ON         ; AUTO_CARRY          ;
+; IGNORE_CARRY_BUFFERS                           ; OFF        ; IGNORE_CARRY        ;
+; AUTO_CASCADE_CHAINS                            ; ON         ; AUTO_CASCADE        ;
+; IGNORE_CASCADE_BUFFERS                         ; OFF        ; IGNORE_CASCADE      ;
+; LPM_WIDTHA                                     ; 17         ; Untyped             ;
+; LPM_WIDTHB                                     ; 10         ; Untyped             ;
+; LPM_WIDTHP                                     ; 27         ; Untyped             ;
+; LPM_WIDTHR                                     ; 27         ; Untyped             ;
+; LPM_WIDTHS                                     ; 1          ; Untyped             ;
+; LPM_REPRESENTATION                             ; UNSIGNED   ; Untyped             ;
+; LPM_PIPELINE                                   ; 0          ; Untyped             ;
+; LATENCY                                        ; 0          ; Untyped             ;
+; INPUT_A_IS_CONSTANT                            ; NO         ; Untyped             ;
+; INPUT_B_IS_CONSTANT                            ; YES        ; Untyped             ;
+; USE_EAB                                        ; OFF        ; Untyped             ;
+; MAXIMIZE_SPEED                                 ; 5          ; Untyped             ;
+; DEVICE_FAMILY                                  ; Cyclone II ; Untyped             ;
+; CARRY_CHAIN                                    ; MANUAL     ; Untyped             ;
+; APEX20K_TECHNOLOGY_MAPPER                      ; LUT        ; TECH_MAPPER_APEX20K ;
+; DEDICATED_MULTIPLIER_CIRCUITRY                 ; AUTO       ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_INPUT_WIDTH_FOR_AUTO  ; 0          ; Untyped             ;
+; DEDICATED_MULTIPLIER_MIN_OUTPUT_WIDTH_FOR_AUTO ; 0          ; Untyped             ;
+; CBXI_PARAMETER                                 ; mult_7ct   ; Untyped             ;
+; INPUT_A_FIXED_VALUE                            ; Bx         ; Untyped             ;
+; INPUT_B_FIXED_VALUE                            ; Bx         ; Untyped             ;
+; USE_AHDL_IMPLEMENTATION                        ; OFF        ; Untyped             ;
++------------------------------------------------+------------+---------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; lpm_mult Parameter Settings by Entity Instance                         ;
++---------------------------------------+--------------------------------+
+; Name                                  ; Value                          ;
++---------------------------------------+--------------------------------+
+; Number of entity instances            ; 5                              ;
+; Entity Instance                       ; mlp_infer:u_mlp|lpm_mult:Mult4 ;
+;     -- LPM_WIDTHA                     ; 4                              ;
+;     -- LPM_WIDTHB                     ; 8                              ;
+;     -- LPM_WIDTHP                     ; 12                             ;
+;     -- LPM_REPRESENTATION             ; SIGNED                         ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                             ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                             ;
+;     -- USE_EAB                        ; OFF                            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                           ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                             ;
+; Entity Instance                       ; mlp_infer:u_mlp|lpm_mult:Mult3 ;
+;     -- LPM_WIDTHA                     ; 4                              ;
+;     -- LPM_WIDTHB                     ; 8                              ;
+;     -- LPM_WIDTHP                     ; 12                             ;
+;     -- LPM_REPRESENTATION             ; SIGNED                         ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                             ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                             ;
+;     -- USE_EAB                        ; OFF                            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                           ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                             ;
+; Entity Instance                       ; mlp_infer:u_mlp|lpm_mult:Mult2 ;
+;     -- LPM_WIDTHA                     ; 4                              ;
+;     -- LPM_WIDTHB                     ; 8                              ;
+;     -- LPM_WIDTHP                     ; 12                             ;
+;     -- LPM_REPRESENTATION             ; SIGNED                         ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                             ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                             ;
+;     -- USE_EAB                        ; OFF                            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                           ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                             ;
+; Entity Instance                       ; mlp_infer:u_mlp|lpm_mult:Mult1 ;
+;     -- LPM_WIDTHA                     ; 4                              ;
+;     -- LPM_WIDTHB                     ; 8                              ;
+;     -- LPM_WIDTHP                     ; 12                             ;
+;     -- LPM_REPRESENTATION             ; SIGNED                         ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                             ;
+;     -- INPUT_B_IS_CONSTANT            ; NO                             ;
+;     -- USE_EAB                        ; OFF                            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                           ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                             ;
+; Entity Instance                       ; mlp_infer:u_mlp|lpm_mult:Mult0 ;
+;     -- LPM_WIDTHA                     ; 17                             ;
+;     -- LPM_WIDTHB                     ; 10                             ;
+;     -- LPM_WIDTHP                     ; 27                             ;
+;     -- LPM_REPRESENTATION             ; UNSIGNED                       ;
+;     -- INPUT_A_IS_CONSTANT            ; NO                             ;
+;     -- INPUT_B_IS_CONSTANT            ; YES                            ;
+;     -- USE_EAB                        ; OFF                            ;
+;     -- DEDICATED_MULTIPLIER_CIRCUITRY ; AUTO                           ;
+;     -- INPUT_A_FIXED_VALUE            ; Bx                             ;
+;     -- INPUT_B_FIXED_VALUE            ; Bx                             ;
++---------------------------------------+--------------------------------+
+
+
++---------------------------------------------------+
+; Port Connectivity Checks: "uart_tx:u_tx"          ;
++------+--------+----------+------------------------+
+; Port ; Type   ; Severity ; Details                ;
++------+--------+----------+------------------------+
+; busy ; Output ; Info     ; Explicitly unconnected ;
++------+--------+----------+------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:03:29     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Mon May 11 11:27:19 2026
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off mnist_top -c mnist_top
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 6 design units, including 6 entities, in source file mnist_top.v
+    Info (12023): Found entity 1: mnist_top
+    Info (12023): Found entity 2: uart_rx
+    Info (12023): Found entity 3: uart_tx
+    Info (12023): Found entity 4: pixel_buffer
+    Info (12023): Found entity 5: mlp_infer
+    Info (12023): Found entity 6: seg7
+Info (12127): Elaborating entity "mnist_top" for the top level hierarchy
+Info (12128): Elaborating entity "uart_rx" for hierarchy "uart_rx:u_rx"
+Info (12128): Elaborating entity "pixel_buffer" for hierarchy "pixel_buffer:u_buf"
+Info (12128): Elaborating entity "mlp_infer" for hierarchy "mlp_infer:u_mlp"
+Warning (10240): Verilog HDL Always Construct warning at mnist_top.v(301): inferring latch(es) for variable "k", which holds its previous value in one or more paths through the always construct
+Warning (10030): Net "fc1_w.data_a" at mnist_top.v(266) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "fc1_w.waddr_a" at mnist_top.v(266) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "fc2_w.data_a" at mnist_top.v(267) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "fc2_w.waddr_a" at mnist_top.v(267) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "fc3_w.data_a" at mnist_top.v(268) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "fc3_w.waddr_a" at mnist_top.v(268) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "fc4_w.data_a" at mnist_top.v(269) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "fc4_w.waddr_a" at mnist_top.v(269) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "fc1_w.we_a" at mnist_top.v(266) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "fc2_w.we_a" at mnist_top.v(267) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "fc3_w.we_a" at mnist_top.v(268) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "fc4_w.we_a" at mnist_top.v(269) has no driver or initial value, using a default initial value '0'
+Info (12128): Elaborating entity "uart_tx" for hierarchy "uart_tx:u_tx"
+Info (12128): Elaborating entity "seg7" for hierarchy "seg7:u_seg"
+Info (276014): Found 4 instances of uninferred RAM logic
+    Info (276007): RAM logic "mlp_infer:u_mlp|fc1_w" is uninferred due to asynchronous read logic
+    Info (276007): RAM logic "mlp_infer:u_mlp|fc2_w" is uninferred due to asynchronous read logic
+    Info (276007): RAM logic "mlp_infer:u_mlp|fc3_w" is uninferred due to asynchronous read logic
+    Info (276007): RAM logic "mlp_infer:u_mlp|fc4_w" is uninferred due to asynchronous read logic
+Critical Warning (127005): Memory depth (65536) in the design file differs from memory depth (50176) in the Memory Initialization File "C:/Users/sriga/OneDrive/Desktop/mlp_digit_try1/db/mnist_top.ram0_mlp_infer_7a6f78c1.hdl.mif" -- setting initial value for remaining addresses to 0
+Critical Warning (127005): Memory depth (256) in the design file differs from memory depth (160) in the Memory Initialization File "C:/Users/sriga/OneDrive/Desktop/mlp_digit_try1/db/mnist_top.ram3_mlp_infer_7a6f78c1.hdl.mif" -- setting initial value for remaining addresses to 0
+Info (278001): Inferred 5 megafunctions from design logic
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "mlp_infer:u_mlp|Mult4"
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "mlp_infer:u_mlp|Mult3"
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "mlp_infer:u_mlp|Mult2"
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "mlp_infer:u_mlp|Mult1"
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "mlp_infer:u_mlp|Mult0"
+Info (12130): Elaborated megafunction instantiation "mlp_infer:u_mlp|lpm_mult:Mult4"
+Info (12133): Instantiated megafunction "mlp_infer:u_mlp|lpm_mult:Mult4" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTHA" = "4"
+    Info (12134): Parameter "LPM_WIDTHB" = "8"
+    Info (12134): Parameter "LPM_WIDTHP" = "12"
+    Info (12134): Parameter "LPM_WIDTHR" = "12"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_dus.tdf
+    Info (12023): Found entity 1: mult_dus
+Info (12130): Elaborated megafunction instantiation "mlp_infer:u_mlp|lpm_mult:Mult0"
+Info (12133): Instantiated megafunction "mlp_infer:u_mlp|lpm_mult:Mult0" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTHA" = "17"
+    Info (12134): Parameter "LPM_WIDTHB" = "10"
+    Info (12134): Parameter "LPM_WIDTHP" = "27"
+    Info (12134): Parameter "LPM_WIDTHR" = "27"
+    Info (12134): Parameter "LPM_WIDTHS" = "1"
+    Info (12134): Parameter "LPM_REPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "INPUT_A_IS_CONSTANT" = "NO"
+    Info (12134): Parameter "INPUT_B_IS_CONSTANT" = "YES"
+    Info (12134): Parameter "MAXIMIZE_SPEED" = "5"
+Info (12021): Found 1 design units, including 1 entities, in source file db/mult_7ct.tdf
+    Info (12023): Found entity 1: mult_7ct
+Info (13014): Ignored 204 buffer(s)
+    Info (13016): Ignored 8 CARRY_SUM buffer(s)
+    Info (13019): Ignored 196 SOFT buffer(s)
+Warning (13034): The following nodes have both tri-state and non-tri-state drivers
+    Warning (13035): Inserted always-enabled tri-state buffer between "GPIO_1[1]" and its non-tri-state driver.
+Warning (13039): The following bidir pins have no drivers
+    Warning (13040): Bidir "GPIO_1[0]" has no driver
+    Warning (13040): Bidir "GPIO_1[2]" has no driver
+    Warning (13040): Bidir "GPIO_1[3]" has no driver
+    Warning (13040): Bidir "GPIO_1[4]" has no driver
+    Warning (13040): Bidir "GPIO_1[5]" has no driver
+    Warning (13040): Bidir "GPIO_1[6]" has no driver
+    Warning (13040): Bidir "GPIO_1[7]" has no driver
+    Warning (13040): Bidir "GPIO_1[8]" has no driver
+    Warning (13040): Bidir "GPIO_1[9]" has no driver
+    Warning (13040): Bidir "GPIO_1[10]" has no driver
+    Warning (13040): Bidir "GPIO_1[11]" has no driver
+    Warning (13040): Bidir "GPIO_1[12]" has no driver
+    Warning (13040): Bidir "GPIO_1[13]" has no driver
+    Warning (13040): Bidir "GPIO_1[14]" has no driver
+    Warning (13040): Bidir "GPIO_1[15]" has no driver
+    Warning (13040): Bidir "GPIO_1[16]" has no driver
+    Warning (13040): Bidir "GPIO_1[17]" has no driver
+    Warning (13040): Bidir "GPIO_1[18]" has no driver
+    Warning (13040): Bidir "GPIO_1[19]" has no driver
+    Warning (13040): Bidir "GPIO_1[20]" has no driver
+    Warning (13040): Bidir "GPIO_1[21]" has no driver
+    Warning (13040): Bidir "GPIO_1[22]" has no driver
+    Warning (13040): Bidir "GPIO_1[23]" has no driver
+    Warning (13040): Bidir "GPIO_1[24]" has no driver
+    Warning (13040): Bidir "GPIO_1[25]" has no driver
+    Warning (13040): Bidir "GPIO_1[26]" has no driver
+    Warning (13040): Bidir "GPIO_1[27]" has no driver
+    Warning (13040): Bidir "GPIO_1[28]" has no driver
+    Warning (13040): Bidir "GPIO_1[29]" has no driver
+    Warning (13040): Bidir "GPIO_1[30]" has no driver
+    Warning (13040): Bidir "GPIO_1[31]" has no driver
+    Warning (13040): Bidir "GPIO_1[32]" has no driver
+    Warning (13040): Bidir "GPIO_1[33]" has no driver
+    Warning (13040): Bidir "GPIO_1[34]" has no driver
+    Warning (13040): Bidir "GPIO_1[35]" has no driver
+Info (13000): Registers with preset signals will power-up high
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13009): TRI or OPNDRN buffers permanently enabled
+    Warning (13010): Node "GPIO_1[1]~synth"
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "LEDR[0]" is stuck at GND
+    Warning (13410): Pin "LEDR[1]" is stuck at GND
+    Warning (13410): Pin "LEDR[2]" is stuck at GND
+    Warning (13410): Pin "LEDR[3]" is stuck at GND
+    Warning (13410): Pin "LEDR[4]" is stuck at GND
+    Warning (13410): Pin "LEDR[5]" is stuck at GND
+    Warning (13410): Pin "LEDR[6]" is stuck at GND
+    Warning (13410): Pin "LEDR[7]" is stuck at GND
+    Warning (13410): Pin "LEDR[8]" is stuck at GND
+    Warning (13410): Pin "LEDR[9]" is stuck at GND
+    Warning (13410): Pin "LEDR[10]" is stuck at GND
+    Warning (13410): Pin "LEDR[11]" is stuck at GND
+    Warning (13410): Pin "LEDR[12]" is stuck at GND
+    Warning (13410): Pin "LEDR[13]" is stuck at GND
+    Warning (13410): Pin "LEDG[3]" is stuck at GND
+    Warning (13410): Pin "LEDG[4]" is stuck at GND
+    Warning (13410): Pin "LEDG[5]" is stuck at GND
+    Warning (13410): Pin "LEDG[6]" is stuck at GND
+    Warning (13410): Pin "LEDG[7]" is stuck at GND
+    Warning (13410): Pin "LEDG[8]" is stuck at GND
+Info (17049): 5 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file C:/Users/sriga/OneDrive/Desktop/mlp_digit_try1/mnist_top.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 27847 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 34 output pins
+    Info (21060): Implemented 36 bidirectional pins
+    Info (21061): Implemented 27773 logic cells
+    Info (21062): Implemented 2 DSP elements
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 77 warnings
+    Info: Peak virtual memory: 7582 megabytes
+    Info: Processing ended: Mon May 11 11:34:11 2026
+    Info: Elapsed time: 00:06:52
+    Info: Total CPU time (on all processors): 00:06:29
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/sriga/OneDrive/Desktop/mlp_digit_try1/mnist_top.map.smsg.
+
+

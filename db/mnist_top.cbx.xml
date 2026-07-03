@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="mnist_top">
+		<CBX_INST_ENTRY INSTANCE_NAME="|mnist_top|mlp_infer:u_mlp|lpm_mult:Mult0" CBX_FILE_NAME="mult_7ct.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|mnist_top|mlp_infer:u_mlp|lpm_mult:Mult2" CBX_FILE_NAME="mult_dus.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|mnist_top|mlp_infer:u_mlp|lpm_mult:Mult4" CBX_FILE_NAME="mult_dus.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|mnist_top|mlp_infer:u_mlp|lpm_mult:Mult1" CBX_FILE_NAME="mult_dus.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|mnist_top|mlp_infer:u_mlp|lpm_mult:Mult3" CBX_FILE_NAME="mult_dus.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

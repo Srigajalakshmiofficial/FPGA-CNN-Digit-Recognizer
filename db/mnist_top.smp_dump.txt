@@ -1,0 +1,21 @@
+
+State Machine - |mnist_top|mlp_infer:u_mlp|state
+Name state.S_L3 state.S_L2 state.S_L1 state.S_IDLE state.S_L4 
+state.S_IDLE 0 0 0 0 0 
+state.S_L1 0 0 1 1 0 
+state.S_L2 0 1 0 1 0 
+state.S_L3 1 0 0 1 0 
+state.S_L4 0 0 0 1 1 
+
+State Machine - |mnist_top|pixel_buffer:u_buf|state
+Name state.WAIT state.CHKSUM state.RECV 
+state.WAIT 0 0 0 
+state.RECV 1 0 1 
+state.CHKSUM 1 1 0 
+
+State Machine - |mnist_top|uart_rx:u_rx|state
+Name state.STOP state.DATA state.START state.IDLE 
+state.IDLE 0 0 0 0 
+state.START 0 0 1 1 
+state.DATA 0 1 0 1 
+state.STOP 1 0 0 1 

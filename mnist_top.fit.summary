@@ -1,0 +1,16 @@
+Fitter Status : Successful - Mon May 11 11:38:19 2026
+Quartus II 64-Bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
+Revision Name : mnist_top
+Top-level Entity Name : mnist_top
+Family : Cyclone II
+Device : EP2C35F672C6
+Timing Models : Final
+Total logic elements : 26,874 / 33,216 ( 81 % )
+    Total combinational functions : 26,034 / 33,216 ( 78 % )
+    Dedicated logic registers : 8,170 / 33,216 ( 25 % )
+Total registers : 8170
+Total pins : 72 / 475 ( 15 % )
+Total virtual pins : 0
+Total memory bits : 0 / 483,840 ( 0 % )
+Embedded Multiplier 9-bit elements : 2 / 70 ( 3 % )
+Total PLLs : 0 / 4 ( 0 % )
